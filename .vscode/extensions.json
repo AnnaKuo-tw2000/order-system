@@ -1,0 +1,48 @@
+{
+    "recommendations": [
+        // 自動添加 close tag
+        "formulahendry.auto-close-tag",
+        // 編輯時，自動更改配對的 tag Name
+        "formulahendry.auto-rename-tag",
+        // 英文拼寫檢查
+        "streetsidesoftware.code-spell-checker",
+        // 提供多種註解樣式(通過 ! / ? / TODO 前綴)
+        "aaron-bond.better-comments",
+        // css peek 功能：按住 ctrl 並 hover css，自動抓取對應的css位置
+        "pranaygp.vscode-css-peek",
+        // eslint 搭配套件
+        "dbaeumer.vscode-eslint",
+        // 套用各語言的預設 gitignore 設定
+        "codezombiech.gitignore",
+        // 提供 git 基本 GUI
+        "eamodio.gitlens",
+        // image 預覽
+        "kisstkondoros.vscode-gutter-preview",
+        // sass/scss 編譯成 css 工具
+        "glenn2223.live-sass",
+        // 提供時時更新的預覽 server
+        "ritwickdey.LiveServer",
+        // 快速添加console.log
+        "Luis.console-log",
+        // 提供 markdown 預覽等各式實用功能
+        "yzhang.markdown-all-in-one",
+        // 進行 markdown 語法檢查
+        "DavidAnson.vscode-markdownlint",
+        // 各種類型檔案的 formatter
+        "esbenp.prettier-vscode",
+        // tailwindcss 輔助
+        "bradlc.vscode-tailwindcss",
+        // 無效 spaces 提示
+        "shardulm94.trailing-spaces",
+        // vscode-icons 圖示
+        "vscode-icons-team.vscode-icons",
+        // vue peek 功能
+        "dariofuzinato.vue-peek",
+        // Vue3 開發使用：下3
+        "Vue.vscode-typescript-vue-plugin",
+        "hollowtree.vue-snippets",
+        "Vue.volar",
+        // Vue2 開發使用：下1
+        "octref.vetur"
+    ]
+}
