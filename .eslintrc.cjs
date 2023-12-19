@@ -35,5 +35,8 @@ module.exports = {
         "no-use-before-define": "off",
         "vue/max-len": "off",
         "import/no-extraneous-dependencies": "off",
+        "import/prefer-default-export": "off",
+        "import/no-unresolved": "off",
+        "no-undef": "off",
     },
 };
