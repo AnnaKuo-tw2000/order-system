@@ -10,8 +10,10 @@
         "postinstall": "nuxt prepare"
     },
     "devDependencies": {
+        "@element-plus/nuxt": "^1.0.7",
         "@nuxt/devtools": "latest",
         "@nuxtjs/eslint-module": "^4.1.0",
+        "element-plus": "^2.4.4",
         "eslint": "^8.55.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-plugin-import": "^2.29.1",
