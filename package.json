@@ -1,5 +1,5 @@
 {
-    "name": "shopping-mall",
+    "name": "order-system",
     "private": true,
     "type": "module",
     "scripts": {
