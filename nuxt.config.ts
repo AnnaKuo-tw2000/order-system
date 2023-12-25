@@ -8,8 +8,8 @@ export default defineNuxtConfig({
         "@pinia/nuxt",
         "@element-plus/nuxt",
         "@vueuse/nuxt",
-        // 為避免與 Nuxt 的衝突 toRefs useFetch useCookie useHead useTitle useStorage 已停用自動匯入
-        // 可通過 import { useStorage } from '@vueuse/core' 來使用
+        // 通過 import { useStorage } from '@vueuse/core' 來使用
+        "@nuxtjs/tailwindcss",
     ],
     vite: {
         css: {

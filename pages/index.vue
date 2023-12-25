@@ -3,12 +3,12 @@
 
 <template>
     <div>
-        <h1>首頁</h1>
+        <h1 class="h-[20px] bg-primary">首頁</h1>
     </div>
 </template>
 
 <style lang="scss" scoped>
 h1 {
-    width: var(--hello);
+    height: var(--hello);
 }
 </style>
