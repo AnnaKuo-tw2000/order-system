@@ -11,14 +11,19 @@ module.exports = {
         extend: {
             colors: {
                 // 樣式
-                primary: "#f4b508",
-                secondary: "#ffebd4",
+                primary: "#efe9e7",
+                secondary: "#3D1101",
+                Tertiary: "#efeae7",
 
                 // 文字
-                txPrimary: "#4a4a4a",
+                txPrimary: "#3d1101",
                 txSecondary: "#bebebe",
                 txTertiary: "#c0c4cc",
             },
+            // backgroundImage: {
+            //     "header-texture": "url('/img/header_desktop.png')",
+            //     "footer-texture": "url('/img/footer-texture.png')",
+            // },
         },
     },
 };
