@@ -1,21 +1,30 @@
 <script setup>
-import { ref } from 'vue';
-
-const input = ref('');
-const radio1 = ref('1');
 
 </script>
 
 <template>
     <div>
+        <section class="bg-primary h-[480px] py-12 px-20 text-amber-950 flex justify-between gap-20 items-center">
+            <div class="w-1/2">
+                <h1 class="text-4xl">小咪西餐廳</h1>
+                <p class="text-xl mb-4 text-slate-500">SINCE 2000</p>
+                <p>自2005年起，<br>
+                    一座開滿美好燈光的小酒館從城市繁忙的角落誕生，<br>
+                    這裡是一個融合美食與美酒，以及和諧家庭氛圍的空間。<br>
+                    開業以來，我們一直秉持著梨妃的初衷，將每一位顧客視為家人般對待。<br>
+                    這裡不只是一個餐酒館，更是一個記錄著人們幸福瞬間的地方。<br>感謝每一位顧客的支持與陪伴，<br>讓我們共同編織屬於這座小酒館的美好故事。</p>
+            </div>
+            <div class="w-1/2">
+                <img src="../img/Inside the restaurant.jpg" alt="" class="w-full">
+            </div>
+        </section>
 
         <section class="bg-primary h-[520px] p-8 text-amber-950 ">
-            <div class="flex justify-center items-center gap-4">
+            <div class="flex justify-center items-center gap-4 mb-5">
                 <div class="h-px w-20 border-b border-slate-500"></div>
-                <div class="text-center leading-loose text-lg">
+                <div class="text-center leading-loose text-lg font-black">
                     <p>客人總是在詢問</p>
                     <p>這麼好吃的秘訣是什麼</p>
-
                 </div>
                 <div class="h-px w-20 border-b border-slate-500"></div>
             </div>
@@ -26,29 +35,35 @@ const radio1 = ref('1');
                         <img src=" ../img/feature_1.png" alt="" class="rounded-full w-[90%]">
                     </div>
                     <div>台灣本土蔬菜</div>
-                    <p class="text-sm">In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam.
-                        Integer et elit
-                        eget elit facilisis tristique. Nam vel iaculis mauris.</p>
+                    <p class="text-sm">本店嚴選最新鮮的當季蔬菜，來自當地優質農田。每道料理都注重新鮮風味，以保留蔬菜的天然美味。我們致力於提供新鮮、營養豐富的蔬食饗宴，為您呈現最令人垂涎的美食體驗。</p>
                 </div>
                 <div class="w-1/3 flex flex-col items-center gap-2 px-2.5 py-2.5">
                     <div class="">
                         <img src="../img/feature_2.png" alt="" class="rounded-full w-[90%]">
                     </div>
                     <div>專業米其林廚師</div>
-                    <p class="text-sm">Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod. Fusce rhoncus
-                        porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis, facilisis
-                        accumsan turpis.</p>
+                    <p class="text-sm">
+                        本店引進一流廚師，擁有豐富的國際經驗，精湛技藝糅合創新靈感。每位廚師都熱衷於用心製作獨特料理，以極致烹飪藝術呈現美味佳餚。品味本店獨特風格，感受廚師專業的烹調魔法。</p>
                 </div>
                 <div class="w-1/3 flex flex-col items-center gap-2 px-2.5 py-2.5">
                     <div class="">
                         <img src="../img/feature_3.png" alt="" class="rounded-full w-[90%]">
                     </div>
                     <div>對於專業不能退讓</div>
-                    <p class="text-sm">Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod. Fusce rhoncus
-                        porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis, facilisis
-                        accumsan turpis.</p>
+                    <p class="text-sm">
+                        本店以專業烹飪藝術見稱，匠心獨具的廚師團隊擁有豐富國際經驗。我們致力於提供最新鮮的食材，結合獨特創新的料理手法，打造精緻口味。以嚴選食材、專業技術，為您呈現獨一無二的美食饗宴</p>
                 </div>
             </div>
+        </section>
+
+        <section class="bg-primary h-[480px]  ">
+            <div class="text-center leading-[4] text-2xl font-bold text-amber-950 ">料理精釀．工藝</div>
+            <figure class="flex flex-col">
+                <video controls preload autoplay loop muted width="50%" class="mx-auto my-auto">
+                    <source src="../img/cook-preview.mp4" type="video/mp4">
+                </video>
+
+            </figure>
         </section>
 
         <section class="bg-amber-950 text-white h-[443px] flex gap-5 px-12 max-md:px-6">
@@ -105,47 +120,8 @@ const radio1 = ref('1');
 
             </div>
         </section>
-        <section class="bg-stone-100 h-[530px] p-10 text-amber-950 max-md:p-6">
-            <div class="text-center text-xl mb-5">我們的位子不太夠坐要不要先訂位呢？</div>
-            <div class="flex max-md:gap-6">
-                <div class="w-1/2">
-                    <img src="../img/Map.png" alt="" class=" h-full">
-                </div>
-
-                <div class="flex flex-col w-1/2 gap-1">
-                    <p>姓名</p>
-                    <el-input v-model="input" placeholder="Please input" />
-
-                    <p>電話</p>
-                    <el-input v-model="input" placeholder="Please input" />
-
-                    <p>信箱</p>
-                    <el-input v-model="input" placeholder="Please input" />
-
-                    <p>人數</p>
-                    <el-input v-model="input" placeholder="Please input" />
-
-                    <p class="mt-2">是否需要素食</p>
-                    <el-radio-group v-model="radio1" class="relative bottom-2">
-                        <el-radio label="1" size="large">Option 1</el-radio>
-                        <el-radio label="2" size="large">Option 2</el-radio>
-                    </el-radio-group>
-
-                    <el-row class=" self-end">
-                        <el-button type="info">取消</el-button>
-                        <el-button type="warning">確認</el-button>
-                    </el-row>
-                </div>
-            </div>
-        </section>
 
     </div>
 </template>
 
-<style lang="scss" scoped>
-:deep() {
-    .el-input {
-        width: 100%;
-    }
-}
-</style>
+<style lang="scss" scoped></style>
