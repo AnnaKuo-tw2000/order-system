@@ -2,7 +2,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: false },
-    css: ["~/assets/scss/main.scss"],
+    css: [
+        "~/assets/scss/main.scss",
+        "@fortawesome/fontawesome-svg-core/styles.css",
+    ],
     modules: [
         "@nuxtjs/eslint-module",
         "@pinia/nuxt",
