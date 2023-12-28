@@ -39,5 +39,6 @@ module.exports = {
         "import/no-unresolved": "off",
         "no-undef": "off",
         "max-len": "off",
+        "linebreak-style": "off",
     },
 };
