@@ -6,7 +6,7 @@ const radio1 = ref('1');
 </script>
 
 <template>
-    <section class="bg-stone-100 h-[530px] p-10 text-amber-950 max-md:p-6">
+    <section class="bg-[url('/img/bg.jpg')] p-10 text-amber-950 max-md:p-6">
         <div class="text-center text-xl mb-5">我們的位子不太夠坐要不要先訂位呢？</div>
         <div class="flex max-md:gap-6">
             <div class="w-1/2">
