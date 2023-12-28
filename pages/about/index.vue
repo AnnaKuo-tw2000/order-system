@@ -5,7 +5,7 @@ const input3 = ref('');
 </script>
 
 <template>
-    <div class="bg-primary h-[650px] p-12 flex gap-6 text-amber-950 w-full">
+    <div class="bg-[url('/img/bg.jpg')]  p-12 flex gap-6 text-amber-950 w-full">
 
         <div class="w-1/4">
             <div class="flex items-center justify-center">
