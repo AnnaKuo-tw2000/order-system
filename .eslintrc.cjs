@@ -38,5 +38,6 @@ module.exports = {
         "import/prefer-default-export": "off",
         "import/no-unresolved": "off",
         "no-undef": "off",
+        "max-len": "off",
     },
 };
