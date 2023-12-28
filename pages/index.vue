@@ -3,15 +3,15 @@
 </script>
 
 <template>
-    <div>
-        <section class="bg-primary h-[480px] py-12 px-20 text-amber-950 flex justify-between gap-20 items-center">
+    <div class="bg-[url('/img/bg.jpg')] ">
+        <section class=" py-12 px-20 text-amber-950 flex justify-between gap-20 items-center">
             <div class="w-1/2">
                 <h1 class="text-4xl">小咪西餐廳</h1>
                 <p class="text-xl mb-4 text-slate-500">SINCE 2000</p>
                 <p>自2005年起，<br>
                     一座開滿美好燈光的小酒館從城市繁忙的角落誕生，<br>
                     這裡是一個融合美食與美酒，以及和諧家庭氛圍的空間。<br>
-                    開業以來，我們一直秉持著梨妃的初衷，將每一位顧客視為家人般對待。<br>
+                    開業以來，我們一直秉持著小咪的初衷，將每一位顧客視為家人般對待。<br>
                     這裡不只是一個餐酒館，更是一個記錄著人們幸福瞬間的地方。<br>感謝每一位顧客的支持與陪伴，<br>讓我們共同編織屬於這座小酒館的美好故事。</p>
             </div>
             <div class="w-1/2">
@@ -19,7 +19,7 @@
             </div>
         </section>
 
-        <section class="bg-primary h-[520px] p-8 text-amber-950 ">
+        <section class=" p-8 text-amber-950 ">
             <div class="flex justify-center items-center gap-4 mb-5">
                 <div class="h-px w-20 border-b border-slate-500"></div>
                 <div class="text-center leading-loose text-lg font-black">
@@ -56,7 +56,7 @@
             </div>
         </section>
 
-        <section class="bg-primary h-[480px]  ">
+        <section class="mb-14">
             <div class="text-center leading-[4] text-2xl font-bold text-amber-950 ">料理精釀．工藝</div>
             <figure class="flex flex-col">
                 <video controls preload autoplay loop muted width="50%" class="mx-auto my-auto">
@@ -71,7 +71,7 @@
                 <img src="../img/main_chef_brown.png" alt="" class="h-[100%]">
             </div>
             <div class="w-[500px] flex flex-col justify-center gap-3 ">
-                <p>今日主廚：帕金森，梅再帕</p>
+                <p>創始主廚：帕金森，梅再帕</p>
                 <p class="text-sm">today chef:plum in shock</p>
                 <p class="text-sm">Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere
                     vulputate. Etiam elit
@@ -83,7 +83,7 @@
             </div>
         </section>
 
-        <section class="bg-primary h-[300px] py-8 px-4 text-amber-950 max-md:px-0">
+        <section class="py-8 px-4 text-amber-950 max-md:px-0">
             <div class="text-center text-xl mb-5">聽聽別人的想法</div>
             <div class="flex justify-evenly gap-3 ">
 
