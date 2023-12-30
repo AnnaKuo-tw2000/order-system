@@ -56,16 +56,6 @@
             </div>
         </section>
 
-        <section class="mb-14">
-            <div class="text-center leading-[4] text-2xl font-bold text-amber-950 ">料理精釀．工藝</div>
-            <figure class="flex flex-col">
-                <video controls preload autoplay loop muted width="50%" class="mx-auto my-auto">
-                    <source src="../img/cook-preview.mp4" type="video/mp4">
-                </video>
-
-            </figure>
-        </section>
-
         <section class="bg-amber-950 text-white h-[443px] flex gap-5 px-12 max-md:px-6">
             <div class="">
                 <img src="../img/main_chef_brown.png" alt="" class="h-[100%]">
@@ -80,6 +70,39 @@
                     eget odio sed ligula iaculis consequat at eget orci. Mauris molestie sit amet metus mattis varius. Donec
                     sit amet ligula eget nisi sodales egestas. Aliquam interdum dolor aliquet dolor sollicitudin fermentum.
                     Donec congue lorem a molestie bibendum.</p>
+            </div>
+        </section>
+
+        <section class="mb-14">
+            <div class="text-center leading-[4] text-2xl font-bold text-amber-950 ">料理精釀．工藝</div>
+            <div class=" relative">
+                <video controls preload autoplay loop muted width="50%" class="mx-auto my-auto">
+                    <source src="../img/cook-preview.mp4" type="video/mp4">
+                </video>
+                <div>
+                    <img src="../img/bg-2.png" alt="" class="absolute h-full left-[84%] bottom-[40%]">
+                </div>
+                <div>
+                    <img src="../img/bg-3.png" alt="" class="absolute h-full top-[20%]">
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="bg-[url('/img/bg-4.jpg')] h-[500px] bg-center bg-cover p-8">
+            <div class="w-[94%] h-[436px] bg-black opacity-40 text-white p-4 absolute"></div>
+            <div class="text-white p-4 relative">
+                <div class="text-center mb-2">
+                    <h1 class="text-4xl leading-[1.5]">人氣餐點</h1>
+                    <p>歡樂聚餐就在這裡！我們提供各式主餐，涵蓋義大利麵、定食、排餐、各式小點等...<br>
+                        除了葷食外也貼心提供素食用餐者專屬菜單，歡迎你們來品嚐分享喔！</p>
+                </div>
+                <div class="h-1/2 flex justify-center gap-6">
+                    <img src="../img/food7.jpg" alt="" class="w-1/4">
+                    <img src="../img/food8.jpg" alt="" class="w-1/4">
+                    <img src="../img/food9.jpg" alt="" class="w-1/4">
+                </div>
             </div>
         </section>
 
@@ -117,7 +140,6 @@
                         <p class="self-end">----美麗萬分</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
