@@ -1,5 +1,14 @@
 <script setup>
 import { KnifeFork } from '@element-plus/icons-vue';
+import * as firebaseAuth from "firebase/auth";
+import { useAuthStore } from '@/stores/auth';
+
+const auth = firebaseAuth.getAuth();
+const authStore = useAuthStore();
+
+function logOut() {
+    firebaseAuth.signOut(auth);
+}
 </script>
 
 <template>
@@ -16,6 +25,12 @@ import { KnifeFork } from '@element-plus/icons-vue';
                 </li>
                 <li class="h-full hover:bg-slate-700 px-4">
                     <NuxtLink :to="{ name: 'reserve' }" class="h-full flex items-center">訂位資訊</NuxtLink>
+                </li>
+                <li class="h-full hover:bg-slate-700 px-4" v-if="!authStore.userInfo">
+                    <NuxtLink to="auth/login" class="h-full flex items-center">登入</NuxtLink>
+                </li>
+                <li class="h-full hover:bg-slate-700 px-4" @click="logOut" v-else>
+                    <span class="h-full flex items-center">登出</span>
                 </li>
                 <!-- <NuxtLink :to="{ name: 'member' }" style="margin-left: 10px">提供服務</NuxtLink>
                 <NuxtLink :to="{ name: 'member' }" style="margin-left: 10px">最新消息</NuxtLink>

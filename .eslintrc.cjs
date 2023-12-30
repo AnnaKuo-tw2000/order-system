@@ -22,7 +22,7 @@ module.exports = {
     },
     plugins: ["vue"],
     rules: {
-        indent: ["error", 4],
+        indent: "off",
         quotes: "off",
         "vue/multi-word-component-names": "off",
         "vue/html-indent": "off",
@@ -39,5 +39,6 @@ module.exports = {
         "import/no-unresolved": "off",
         "no-undef": "off",
         "max-len": "off",
+        "no-restricted-syntax": "off",
     },
 };
