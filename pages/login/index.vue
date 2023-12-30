@@ -1,5 +1,7 @@
 <script setup>
 import { Phone, Lock } from '@element-plus/icons-vue';
+
+const input2 = ref('');
 </script>
 
 <template>
