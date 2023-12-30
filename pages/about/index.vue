@@ -28,10 +28,7 @@ const input3 = ref('');
         <div class="flex flex-col gap-4 w-3/4">
             <div class="flex items-center justify-between w-full">
                 <el-input v-model="input3" class="w-50 m-2" size="small" placeholder="" :suffix-icon="Search" />
-                <div class="flex gap-5">
-                    <div>結賬去</div>
-                    <div>icon</div>
-                </div>
+
             </div>
             <div class="flex justify-between flex-wrap px-2 w-full gap-6">
                 <div class="flex flex-col w-[30%] h-[260px]  items-center shadow-lg">
