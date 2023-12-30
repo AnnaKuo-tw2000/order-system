@@ -165,7 +165,7 @@
     "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
     "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
     "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": false,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "cSpell.words": [
         "fontawesome",
         "fortawesome",
