@@ -15,16 +15,16 @@ const radio1 = ref('1');
 
             <div class="flex flex-col w-1/2 gap-1">
                 <p>姓名</p>
-                <el-input v-model="input" placeholder="Please input" />
+                <el-input v-model="input" placeholder="" />
 
                 <p>電話</p>
-                <el-input v-model="input" placeholder="Please input" />
+                <el-input v-model="input" placeholder="" />
 
                 <p>信箱</p>
-                <el-input v-model="input" placeholder="Please input" />
+                <el-input v-model="input" placeholder="" />
 
                 <p>人數</p>
-                <el-input v-model="input" placeholder="Please input" />
+                <el-input v-model="input" placeholder="" />
 
                 <p class="mt-2">是否需要素食</p>
                 <el-radio-group v-model="radio1" class="relative bottom-2">
