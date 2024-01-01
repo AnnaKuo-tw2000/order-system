@@ -4,11 +4,11 @@
 
 <template>
     <div class="bg-[url('/img/bg.jpg')] ">
-        <section class=" py-12 px-20 text-amber-950 flex justify-between gap-20 items-center">
+        <section class=" py-12 px-20 text-amber-950 flex justify-center items-center">
             <div class="w-1/2">
                 <h1 class="text-4xl">小咪西餐廳</h1>
-                <p class="text-xl mb-4 text-slate-500">SINCE 2000</p>
-                <p>自2005年起，<br>
+                <p class="text-2xl mb-4 text-slate-500">SINCE 2000</p>
+                <p class="text-xl">自2005年起，<br>
                     一座開滿美好燈光的小酒館從城市繁忙的角落誕生，<br>
                     這裡是一個融合美食與美酒，以及和諧家庭氛圍的空間。<br>
                     開業以來，我們一直秉持著小咪的初衷，將每一位顧客視為家人般對待。<br>
@@ -19,10 +19,10 @@
             </div>
         </section>
 
-        <section class=" p-8 text-amber-950 ">
+        <section class=" p-8 text-amber-950 mb-[3%]">
             <div class="flex justify-center items-center gap-4 mb-5">
                 <div class="h-px w-20 border-b border-slate-500"></div>
-                <div class="text-center leading-loose text-lg font-black">
+                <div class="text-center leading-loose text-2xl font-black">
                     <p>客人總是在詢問</p>
                     <p>這麼好吃的秘訣是什麼</p>
                 </div>
@@ -31,39 +31,39 @@
 
             <div class="flex justify-evenly">
                 <div class="w-1/3 flex flex-col items-center gap-2 px-2.5 py-2.5 ">
-                    <div class="">
-                        <img src=" ../img/feature_1.png" alt="" class="rounded-full w-[90%]">
+                    <div>
+                        <img src=" ../img/feature_1.png" alt="" class="rounded-full">
                     </div>
-                    <div>台灣本土蔬菜</div>
-                    <p class="text-sm">本店嚴選最新鮮的當季蔬菜，來自當地優質農田。每道料理都注重新鮮風味，以保留蔬菜的天然美味。我們致力於提供新鮮、營養豐富的蔬食饗宴，為您呈現最令人垂涎的美食體驗。</p>
+                    <div class="text-2xl font-medium">台灣本土蔬菜</div>
+                    <p class="text-lg">本店嚴選最新鮮的當季蔬菜，來自當地優質農田。每道料理都注重新鮮風味，以保留蔬菜的天然美味。我們致力於提供新鮮、營養豐富的蔬食饗宴，為您呈現最令人垂涎的美食體驗。</p>
                 </div>
                 <div class="w-1/3 flex flex-col items-center gap-2 px-2.5 py-2.5">
                     <div class="">
-                        <img src="../img/feature_2.png" alt="" class="rounded-full w-[90%]">
+                        <img src="../img/feature_2.png" alt="" class="rounded-full ">
                     </div>
-                    <div>專業米其林廚師</div>
-                    <p class="text-sm">
+                    <div class="text-2xl font-medium">專業米其林廚師</div>
+                    <p class="text-lg">
                         本店引進一流廚師，擁有豐富的國際經驗，精湛技藝糅合創新靈感。每位廚師都熱衷於用心製作獨特料理，以極致烹飪藝術呈現美味佳餚。品味本店獨特風格，感受廚師專業的烹調魔法。</p>
                 </div>
                 <div class="w-1/3 flex flex-col items-center gap-2 px-2.5 py-2.5">
                     <div class="">
-                        <img src="../img/feature_3.png" alt="" class="rounded-full w-[90%]">
+                        <img src="../img/feature_3.png" alt="" class="rounded-full ">
                     </div>
-                    <div>對於專業不能退讓</div>
-                    <p class="text-sm">
+                    <div class="text-2xl font-medium">對於專業不能退讓</div>
+                    <p class="text-lg">
                         本店以專業烹飪藝術見稱，匠心獨具的廚師團隊擁有豐富國際經驗。我們致力於提供最新鮮的食材，結合獨特創新的料理手法，打造精緻口味。以嚴選食材、專業技術，為您呈現獨一無二的美食饗宴</p>
                 </div>
             </div>
         </section>
 
-        <section class="bg-amber-950 text-white h-[443px] flex gap-5 px-12 max-md:px-6">
-            <div class="">
+        <section class="bg-amber-950 text-white flex gap-[5%] px-12 max-md:px-6 mb-[3%]">
+            <div>
                 <img src="../img/main_chef_brown.png" alt="" class="h-[100%]">
             </div>
             <div class="w-[500px] flex flex-col justify-center gap-3 ">
-                <p>創始主廚：帕金森，梅再帕</p>
-                <p class="text-sm">today chef:plum in shock</p>
-                <p class="text-sm">Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere
+                <h1 class="text-2xl">創始主廚：帕金森，梅再帕</h1>
+                <p class="text-lg">today chef:plum in shock</p>
+                <p>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere
                     vulputate. Etiam elit
                     elit, elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed,
                     ultricies sapien. Pellentesque orci lectus, consectetur vel posuere posuere, rutrum eu ipsum. Aliquam
@@ -73,8 +73,8 @@
             </div>
         </section>
 
-        <section class="mb-14">
-            <div class="text-center leading-[4] text-2xl font-bold text-amber-950 ">料理精釀．工藝</div>
+        <section class="mb-[5%]">
+            <div class="text-center leading-[4] text-3xl font-bold text-amber-950 ">料理精釀．工藝</div>
             <div class=" relative">
                 <video controls preload autoplay loop muted width="50%" class="mx-auto my-auto">
                     <source src="../img/cook-preview.mp4" type="video/mp4">
@@ -90,54 +90,53 @@
 
         </section>
 
-        <section class="bg-[url('/img/bg-4.jpg')] h-[500px] bg-center bg-cover p-8">
-            <div class="w-[94%] h-[436px] bg-black opacity-40 text-white p-4 absolute"></div>
-            <div class="text-white p-4 relative">
-                <div class="text-center mb-2">
-                    <h1 class="text-4xl leading-[1.5]">人氣餐點</h1>
-                    <p>歡樂聚餐就在這裡！我們提供各式主餐，涵蓋義大利麵、定食、排餐、各式小點等...<br>
+        <section class="bg-[url('/img/bg-4.jpg')] h-[90vh] bg-center bg-cover relative mb-[3%]">
+            <div class="w-full h-full bg-black opacity-40 text-white p-4 absolute"></div>
+            <div class="text-white absolute top-[10%] ">
+                <div class="text-center mb-[2%]">
+                    <h1 class="text-4xl leading-loose">人氣餐點</h1>
+                    <p class="text-xl">歡樂聚餐就在這裡！我們提供各式主餐，涵蓋義大利麵、定食、排餐、各式小點等...<br>
                         除了葷食外也貼心提供素食用餐者專屬菜單，歡迎你們來品嚐分享喔！</p>
                 </div>
                 <div class="h-1/2 flex justify-center gap-6">
-                    <img src="../img/food7.jpg" alt="" class="w-1/4">
-                    <img src="../img/food8.jpg" alt="" class="w-1/4">
-                    <img src="../img/food9.jpg" alt="" class="w-1/4">
+                    <img src="../img/food7.jpg" alt="" class="w-1/5">
+                    <img src="../img/food8.jpg" alt="" class="w-1/5">
+                    <img src="../img/food9.jpg" alt="" class="w-1/5">
                 </div>
             </div>
         </section>
 
-        <section class="py-8 px-4 text-amber-950 max-md:px-0">
-            <div class="text-center text-xl mb-5">聽聽別人的想法</div>
+        <section class=" px-4 text-amber-950  max-md:px-0">
+            <h1 class="text-center text-3xl mb-[3%]">聽聽別人的想法</h1>
             <div class="flex justify-evenly gap-3 ">
-
                 <div class="flex w-[30%] max-md:gap-2 ">
-                    <div class="w-full">
+                    <div class="w-1/4">
                         <img src="../img/avatar_1.png" alt="" class="rounded-full">
                     </div>
                     <div class="flex flex-col gap-5 max-md:gap-2">
-                        <p>高雄一口吃</p>
-                        <p>自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
-                        <p class="self-end">----產品經理</p>
+                        <p class="text-2xl">高雄一口吃</p>
+                        <p class="text-lg">自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
+                        <p class="self-end text-lg">----產品經理</p>
                     </div>
                 </div>
                 <div class="flex w-[30%] max-md:gap-2">
-                    <div class="w-full">
+                    <div class="w-1/4">
                         <img src="../img/avatar_2.png" alt="" class="rounded-full">
                     </div>
                     <div class="flex flex-col gap-5 max-md:gap-2">
-                        <p>廟口小霸王</p>
-                        <p>自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
-                        <p class="self-end">----金身道士</p>
+                        <p class="text-2xl">廟口小霸王</p>
+                        <p class="text-lg">自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
+                        <p class="self-end text-lg">----金身道士</p>
                     </div>
                 </div>
                 <div class="flex w-[30%] max-md:gap-2">
-                    <div class="w-full">
+                    <div class="w-1/4">
                         <img src="../img/avatar_3.png" alt="" class="rounded-full">
                     </div>
                     <div class="flex flex-col gap-5 max-md:gap-2">
-                        <p>廟口小霸王</p>
-                        <p>自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
-                        <p class="self-end">----美麗萬分</p>
+                        <p class="text-2xl">廟口小霸王</p>
+                        <p class="text-lg">自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
+                        <p class="self-end text-lg">----美麗萬分</p>
                     </div>
                 </div>
             </div>
