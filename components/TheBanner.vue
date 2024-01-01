@@ -1,10 +1,6 @@
 <script setup>
 import { KnifeFork } from '@element-plus/icons-vue';
 
-// import { ref } from 'vue';
-
-// const num = ref(1);
-
 </script>
 
 <template>
@@ -37,42 +33,7 @@ import { KnifeFork } from '@element-plus/icons-vue';
                 </el-icon>
             </div>
         </div>
-        <!-- <div class="w-[20%] h-auto bg-white absolute bottom-[300px] left-[75%] shadow-md shadow-slate-500 p-4">
 
-            <div class="flex flex-col gap-3 mb-3">
-                <div class="flex gap-3">
-                    <img src="..//img/food10.jpg" alt="" class="w-1/4">
-                    <div>
-                        <p>經典漢堡套餐</p>
-                        <p>Classic Hamburger Package</p>
-                        <p class="text-red-600 mb-2">$120</p>
-                        <div class="flex items-center">
-                            <el-input-number v-model="num" :min="1" :max="10" />
-                        </div>
-                    </div>
-                </div>
-                <div class="flex gap-3">
-                    <img src="..//img/food10.jpg" alt="" class="w-1/4">
-                    <div>
-                        <p>經典漢堡套餐</p>
-                        <p>Classic Hamburger Package</p>
-                        <p class="text-red-600 mb-2">$120</p>
-                        <div class="flex items-center">
-                            <el-input-number v-model="num" :min="1" :max="10" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t-2 flex flex-col gap-3 py-2">
-                <p class="text-lg">購物車中有1品項</p>
-                <div class="flex justify-between">
-                    <p>合計</p>
-                    <p class="text-red-600">NT$240</p>
-                </div>
-                <el-button type="primary" round class="w-[60%] self-center">結賬</el-button>
-            </div>
-        </div> -->
     </div>
 </template>
 
