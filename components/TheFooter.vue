@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="bg-[url('/img/bg.jpg')] h-[200px] flex justify-between  py-8 px-11 max-md:px-2 text-amber-950">
+    <div class="bg-[url('/img/bg.jpg')] h-[200px] flex justify-between items-center py-8 px-11 max-md:px-2 text-amber-950">
         <div class="w-1/3">
             <h1 class="leading-loose text-xl font-semibold">台中店</h1>
             <ul>
@@ -14,14 +14,13 @@
             </ul>
         </div>
 
-        <div class="w-1/3">
+        <div class="w-[20%]">
             <div class="flex h-[40%]">
-                <h1 class=" text-5xl font-extrabold">小咪西餐廳</h1>
-                <div class="w-1/3"><img src="../img/cat2.png" alt="" class="w-[100%] relative right-[30px] bottom-5">
+                <div class="flex items-center">
+                    <h1 class=" text-5xl font-extrabold">小咪西餐廳</h1>
+                    <img src="../img/cat2.png" alt="" class="w-[18%]">
                 </div>
-
             </div>
-
             <div class="flex gap-2 ">
                 <font-awesome-icon :icon="['fab', 'square-instagram']" />
                 <font-awesome-icon :icon="['fab', 'square-facebook']" />
