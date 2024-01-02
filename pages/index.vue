@@ -4,8 +4,8 @@
 
 <template>
     <div class="bg-[url('/img/bg.jpg')] ">
-        <section class=" py-12 px-20 text-amber-950 flex justify-center items-center">
-            <div class="w-1/2">
+        <section class=" py-12 px-20 text-amber-950 flex justify-between items-center">
+            <div class="w-auto">
                 <h1 class="text-4xl">小咪西餐廳</h1>
                 <p class="text-2xl mb-4 text-slate-500">SINCE 2000</p>
                 <p class="text-xl">自2005年起，<br>
@@ -56,7 +56,7 @@
             </div>
         </section>
 
-        <section class="bg-amber-950 text-white flex gap-[5%] px-12 max-md:px-6 mb-[3%]">
+        <section class="bg-amber-950 text-white flex justify-center gap-[5%] px-12 max-md:px-6 mb-[3%]">
             <div>
                 <img src="../img/main_chef_brown.png" alt="" class="h-[100%]">
             </div>
@@ -98,10 +98,10 @@
                     <p class="text-xl">歡樂聚餐就在這裡！我們提供各式主餐，涵蓋義大利麵、定食、排餐、各式小點等...<br>
                         除了葷食外也貼心提供素食用餐者專屬菜單，歡迎你們來品嚐分享喔！</p>
                 </div>
-                <div class="h-1/2 flex justify-center gap-6">
-                    <img src="../img/food7.jpg" alt="" class="w-1/5">
-                    <img src="../img/food8.jpg" alt="" class="w-1/5">
-                    <img src="../img/food9.jpg" alt="" class="w-1/5">
+                <div class="h-1/2 flex justify-center gap-6 ">
+                    <img src="../img/food7.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
+                    <img src="../img/food8.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
+                    <img src="../img/food9.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
                 </div>
             </div>
         </section>
