@@ -20,7 +20,7 @@ import { KnifeFork } from '@element-plus/icons-vue';
             </el-carousel-item>
         </el-carousel>
         <div
-            class="bg-black/[0.3] w-auto h-auto mx-auto py-5 px-3 text-center text-white absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2">
+            class="bg-black/[0.3] w-auto h-auto mx-auto py-5 px-3 text-center text-white absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 hover:scale-110 transition-all duration-700 ">
             <div class="text-4xl leading-loose">咬一口就無法忘懷的漢堡</div>
             <div class="text-2xl leading-1">絕對無法錯過的好滋味 </div>
             <div class="flex items-center justify-center">
