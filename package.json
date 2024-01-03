@@ -32,6 +32,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.5",
         "@pinia/nuxt": "^0.5.1",
         "@vueuse/nuxt": "^10.7.0",
+        "animate.css": "^4.1.1",
         "pinia": "^2.1.7"
     }
 }
