@@ -12,20 +12,20 @@ const num = ref(1);
             <img src="../img/cat2.png" alt="" class="h-[55px] ml-1" />
         </div>
         <ul class="flex h-full text-xl">
-            <li class="h-full  px-4">
+            <li class="h-full  mx-4">
                 <NuxtLink :to="{ name: 'index' }" class="h-full flex items-center">關於我們
                 </NuxtLink>
             </li>
-            <li class="h-full  px-4">
+            <li class="h-full  mx-4">
                 <NuxtLink :to="{ name: 'order' }" class="h-full flex items-center">線上訂購</NuxtLink>
             </li>
-            <li class="h-full  px-4">
+            <li class="h-full  mx-4">
                 <NuxtLink :to="{ name: 'reserve' }" class="h-full flex items-center">訂位資訊</NuxtLink>
             </li>
-            <li class="h-full  px-4">
+            <li class="h-full  mx-4">
                 <NuxtLink :to="{ name: 'login' }" class="h-full flex items-center">登入</NuxtLink>
             </li>
-            <li class="h-full  px-4">
+            <li class="h-full  mx-4">
                 <NuxtLink :to="{ name: 'register' }" class="h-full flex items-center">註冊</NuxtLink>
             </li>
 
@@ -86,6 +86,10 @@ nav {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
 }
 
+li {
+    position: relative;
+}
+
 li:after {
     content: '';
     width: 0%;
@@ -97,6 +101,6 @@ li:after {
 }
 
 li:hover::after {
-    width: 4%;
+    width: 100%;
 }
 </style>
