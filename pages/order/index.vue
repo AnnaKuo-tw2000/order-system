@@ -21,13 +21,13 @@ const input3 = ref('');
             </ul>
         </div>
 
-        <div class="flex flex-col gap-10 w-[60%]">
+        <div class="flex flex-col gap-10 w-[70%]">
             <div class="">
                 <el-input v-model="input3" class="w-50 m-2" size="large" placeholder="" :suffix-icon="Search" />
             </div>
 
             <div class="flex  flex-wrap px-2 w-full gap-6">
-                <div class="flex flex-col w-[25%] h-[55%]  items-center shadow-lg">
+                <div class="flex flex-col w-[250px] h-[300px]  items-center shadow-lg text-center">
                     <img src="../../img/product_1.png" alt="" class="mb-5">
                     <div class="text-2xl leading-[1] font-semibold">經典漢堡套餐</div>
                     <div class=" leading-loose mb-1">Classic Hamburger Package</div>
@@ -35,7 +35,7 @@ const input3 = ref('');
                     <div class="text-xl font-semibold mb-1">$120</div>
                     <el-button class="w-[90%] mt-5">加入購物車</el-button>
                 </div>
-                <div class="flex flex-col w-[25%] h-[55%] items-center shadow-lg">
+                <div class="flex flex-col w-[250px] h-[300px]  items-center shadow-lg text-center">
                     <img src="../../img/product_2.png" alt="" class="mb-5">
                     <div class="text-2xl leading-[1] font-semibold">英俊香腸</div>
                     <div class=" leading-loose mb-1">Handsome Sausage</div>
@@ -43,7 +43,7 @@ const input3 = ref('');
                     <div class="text-xl font-semibold mb-1">$1024</div>
                     <el-button class="w-[90%] mt-5">加入購物車</el-button>
                 </div>
-                <div class="flex flex-col w-[25%] h-[55%] items-center shadow-lg">
+                <div class="flex flex-col w-[250px] h-[300px] items-center shadow-lg text-center">
                     <img src="../../img/product_3.png" alt="" class="mb-5">
                     <div class="text-2xl leading-[1] font-semibold">漢堡兄弟</div>
                     <div class=" leading-loose mb-1">Hamburg Brothers</div>
@@ -51,12 +51,20 @@ const input3 = ref('');
                     <div class="text-xl font-semibold mb-1">$792</div>
                     <el-button class="w-[90%] mt-5">加入購物車</el-button>
                 </div>
-                <div class="flex flex-col w-[25%] h-[55%] items-center shadow-lg">
+                <div class="flex flex-col w-[250px] h-[300px] items-center shadow-lg text-center">
                     <img src="../../img/product_4.png" alt="" class="mb-5">
                     <div class="text-2xl leading-[1] font-semibold">完美願望</div>
                     <div class=" leading-loose mb-1">Dragon Ball Package</div>
                     <div class=" w-24 border-b border-black mb-3"></div>
                     <div class="text-xl font-semibold mb-1">$2290</div>
+                    <el-button class="w-[90%] mt-5">加入購物車</el-button>
+                </div>
+                <div class="flex flex-col w-[250px] h-[300px]  items-center shadow-lg text-center">
+                    <img src="../../img/product_1.png" alt="" class="mb-5">
+                    <div class="text-2xl leading-[1] font-semibold">經典漢堡套餐</div>
+                    <div class=" leading-loose mb-1">Classic Hamburger Package</div>
+                    <div class=" w-24 border-b border-black mb-3"></div>
+                    <div class="text-xl font-semibold mb-1">$120</div>
                     <el-button class="w-[90%] mt-5">加入購物車</el-button>
                 </div>
             </div>
@@ -68,7 +76,7 @@ const input3 = ref('');
 <style lang="scss" scoped>
 :deep() {
     .el-input {
-        width: 65%;
+        width: 70%;
         border: 2px solid #451a03;
     }
 }

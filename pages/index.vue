@@ -1,11 +1,46 @@
 <script setup>
+import 'animate.css';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const option = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3,
+    };
+
+    const observer1 = new IntersectionObserver(callbackFunc1, option);
+    const observer2 = new IntersectionObserver(callbackFunc2, option);
+
+    function callbackFunc1(entries, observer) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                document.querySelector('#leftContent').classList.add('show');
+                document.querySelector('#rightContent').classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+
+    function callbackFunc2(entries, observer) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                document.querySelector('#menuContent').classList.add('animate__animated', 'animate__fadeInUpBig');
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+
+    observer1.observe(document.querySelector('#titleSection'));
+    observer2.observe(document.querySelector('#popularSection'));
+});
 
 </script>
 
 <template>
     <div class="bg-[url('/img/bg.jpg')] ">
-        <section class=" py-12 px-20 text-amber-950 flex justify-between items-center">
-            <div class="w-auto">
+        <section id="titleSection" class=" py-12 px-20 text-amber-950 flex justify-between items-center">
+            <div id="leftContent" class="fadeInLeft w-auto ">
                 <h1 class="text-4xl">小咪西餐廳</h1>
                 <p class="text-2xl mb-4 text-slate-500">SINCE 2000</p>
                 <p class="text-xl">自2005年起，<br>
@@ -14,7 +49,7 @@
                     開業以來，我們一直秉持著小咪的初衷，將每一位顧客視為家人般對待。<br>
                     這裡不只是一個餐酒館，更是一個記錄著人們幸福瞬間的地方。<br>感謝每一位顧客的支持與陪伴，<br>讓我們共同編織屬於這座小酒館的美好故事。</p>
             </div>
-            <div class="w-1/2">
+            <div id="rightContent" class="w-1/2 fadeInRight">
                 <img src="../img/Inside the restaurant.jpg" alt="" class="w-full">
             </div>
         </section>
@@ -90,9 +125,9 @@
 
         </section>
 
-        <section class="bg-[url('/img/bg-4.jpg')] h-[90vh] bg-center bg-cover relative mb-[3%]">
+        <section id="popularSection" class="bg-[url('/img/bg-4.jpg')] h-[90vh] bg-center bg-cover relative mb-[3%]">
             <div class="w-full h-full bg-black opacity-40 text-white p-4 absolute"></div>
-            <div class="text-white absolute top-[10%] ">
+            <div id="menuContent" class=" text-white absolute top-[10%]">
                 <div class="text-center mb-[2%]">
                     <h1 class="text-4xl leading-loose">人氣餐點</h1>
                     <p class="text-xl">歡樂聚餐就在這裡！我們提供各式主餐，涵蓋義大利麵、定食、排餐、各式小點等...<br>
@@ -145,4 +180,25 @@
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.fadeInLeft {
+    opacity: 0;
+    transform: translateX(-50%);
+
+}
+
+.fadeInRight {
+    opacity: 0;
+    transform: translateX(50%);
+}
+
+.show {
+    opacity: 1;
+    transform: translate(0%);
+    transition: all 2s ease;
+}
+
+.animate__animated.animate__fadeInUpBig {
+    --animate-duration: 3s;
+}
+</style>
