@@ -2,71 +2,31 @@
 import 'animate.css';
 import { onMounted } from 'vue';
 
-// onMounted(() => {
-//     const option1 = {
-//         root: null,
-//         rootMargin: '0px',
-//         threshold: 0.3,
-//     };
-//     const option2 = {
-//         root: null,
-//         rootMargin: '0px',
-//         threshold: 0,
-//     };
-
-//     const observer1 = new IntersectionObserver(callbackFunc, option1);
-//     const observer2 = new IntersectionObserver(callbackFunc, option2);
-
-//     function callbackFunc(entries, intersectionObserver) {
-//         entries.forEach((entry) => {
-//             if (entry.isIntersecting) {
-//                 document.querySelector('#leftContent').classList.add('show');
-//                 document.querySelector('#rightContent').classList.add('show');
-//                 document.querySelector('#menuContent').classList.add('animate__animated', 'animate__fadeInUpBig');
-//                 intersectionObserver.unobserve(entry.target);
-//             }
-//         });
-//     }
-
-//     // const firstSection = document.querySelector('#titleSection');
-//     // const secondSection = document.querySelector('#popularSection');
-//     // const targetArr = [firstSection, secondSection];
-//     // targetArr.forEach((item) => { observer.observe(item); });
-
-//     observer1.observe(document.querySelector('#titleSection'));
-//     observer2.observe(document.querySelector('#popularSection'));
-// });
-
 onMounted(() => {
-    const option1 = {
+    const option = {
         root: null,
         rootMargin: '0px',
         threshold: 0.3,
     };
-    const option2 = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.4,
-    };
 
-    const observer1 = new IntersectionObserver(callbackFunc1, option1);
-    const observer2 = new IntersectionObserver(callbackFunc2, option2);
+    const observer1 = new IntersectionObserver(callbackFunc1, option);
+    const observer2 = new IntersectionObserver(callbackFunc2, option);
 
-    function callbackFunc1(entries, intersectionObserver) {
+    function callbackFunc1(entries, observer) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 document.querySelector('#leftContent').classList.add('show');
                 document.querySelector('#rightContent').classList.add('show');
-                intersectionObserver.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
     }
 
-    function callbackFunc2(entries, intersectionObserver) {
+    function callbackFunc2(entries, observer) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 document.querySelector('#menuContent').classList.add('animate__animated', 'animate__fadeInUpBig');
-                intersectionObserver.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
     }
