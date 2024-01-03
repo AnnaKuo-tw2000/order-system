@@ -23,10 +23,10 @@ const num = ref(1);
                 <NuxtLink :to="{ name: 'reserve' }" class="h-full flex items-center">訂位資訊</NuxtLink>
             </li>
             <li class="h-full  mx-4">
-                <NuxtLink :to="{ name: 'login' }" class="h-full flex items-center">登入</NuxtLink>
+                <NuxtLink :to="{ name: 'auth-login' }" class="h-full flex items-center">登入</NuxtLink>
             </li>
             <li class="h-full  mx-4">
-                <NuxtLink :to="{ name: 'register' }" class="h-full flex items-center">註冊</NuxtLink>
+                <NuxtLink :to="{ name: 'auth-register' }" class="h-full flex items-center">註冊</NuxtLink>
             </li>
 
             <el-popover placement="bottom" title="" :width="350" trigger="click" content="">
