@@ -125,7 +125,7 @@ onMounted(() => {
 
         </section>
 
-        <section id="popularSection" class="bg-[url('/img/bg-4.jpg')] h-[90vh] bg-center bg-cover relative mb-[3%]">
+        <section id="popularSection" class="bg-[url('/img/bg-4.jpg')] h-[90vh] bg-center bg-cover relative ">
             <div class="w-full h-full bg-black opacity-40 text-white p-4 absolute"></div>
             <div id="menuContent" class=" text-white absolute top-[10%]">
                 <div class="text-center mb-[2%]">
@@ -137,42 +137,6 @@ onMounted(() => {
                     <img src="../img/food7.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
                     <img src="../img/food8.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
                     <img src="../img/food9.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
-                </div>
-            </div>
-        </section>
-
-        <section class=" px-4 text-amber-950  max-md:px-0">
-            <h1 class="text-center text-3xl mb-[3%]">聽聽別人的想法</h1>
-            <div class="flex justify-evenly gap-3 ">
-                <div class="flex w-[30%] max-md:gap-2 ">
-                    <div class="w-1/4">
-                        <img src="../img/avatar_1.png" alt="" class="rounded-full">
-                    </div>
-                    <div class="flex flex-col gap-5 max-md:gap-2">
-                        <p class="text-2xl">高雄一口吃</p>
-                        <p class="text-lg">自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
-                        <p class="self-end text-lg">----產品經理</p>
-                    </div>
-                </div>
-                <div class="flex w-[30%] max-md:gap-2">
-                    <div class="w-1/4">
-                        <img src="../img/avatar_2.png" alt="" class="rounded-full">
-                    </div>
-                    <div class="flex flex-col gap-5 max-md:gap-2">
-                        <p class="text-2xl">廟口小霸王</p>
-                        <p class="text-lg">自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
-                        <p class="self-end text-lg">----金身道士</p>
-                    </div>
-                </div>
-                <div class="flex w-[30%] max-md:gap-2">
-                    <div class="w-1/4">
-                        <img src="../img/avatar_3.png" alt="" class="rounded-full">
-                    </div>
-                    <div class="flex flex-col gap-5 max-md:gap-2">
-                        <p class="text-2xl">廟口小霸王</p>
-                        <p class="text-lg">自從吃了這間餐廳以後，口水連續留了一個多月沒停，下次不要再讓我遇到，不然我連桌子都啃下去。</p>
-                        <p class="self-end text-lg">----美麗萬分</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -200,5 +164,10 @@ onMounted(() => {
 
 .animate__animated.animate__fadeInUpBig {
     --animate-duration: 3s;
+    opacity: 1;
+}
+
+#menuContent {
+    opacity: 0;
 }
 </style>
