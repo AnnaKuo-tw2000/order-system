@@ -6,7 +6,7 @@ onMounted(() => {
     const option = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.3,
+        threshold: 0.25,
     };
 
     const observer1 = new IntersectionObserver(callbackFunc1, option);
@@ -110,12 +110,12 @@ onMounted(() => {
 
         <section class="mb-[5%]">
             <div class="text-center leading-[4] text-3xl font-bold text-amber-950 ">料理精釀．工藝</div>
-            <div class=" relative">
+            <div class="relative">
                 <video controls preload autoplay loop muted width="50%" class="mx-auto my-auto">
                     <source src="../img/cook-preview.mp4" type="video/mp4">
                 </video>
                 <div>
-                    <img src="../img/bg-2.png" alt="" class="absolute h-full left-[84%] bottom-[40%]">
+                    <img src="../img/bg-2.png" alt="" class="absolute h-full -right-6 bottom-[40%]">
                 </div>
                 <div>
                     <img src="../img/bg-3.png" alt="" class="absolute h-full top-[20%]">

@@ -1,5 +1,4 @@
 <script setup>
-
 // const openShoppingDialog = ref(false);
 
 const num = ref(1);
@@ -31,7 +30,7 @@ const num = ref(1);
 
             <el-popover placement="bottom" title="" :width="350" trigger="click" content="">
                 <template #reference>
-                    <li class="h-full flex items-center  px-4 cursor-pointer"
+                    <li class="h-full flex items-center mx-4 cursor-pointer"
                         @click="openShoppingDialog = !openShoppingDialog">
                         <font-awesome-icon :icon="['fas', 'cart-shopping']" />
                     </li>
