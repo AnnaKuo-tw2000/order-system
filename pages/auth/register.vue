@@ -23,7 +23,8 @@ const input2 = ref('');
                     <el-input v-model="input2" class="w-50" placeholder="" :prefix-icon="Message" />
                     <p>Password</p>
                     <el-input v-model="input2" class="w-50" placeholder="" :prefix-icon="Lock" />
-                    <el-button type="warning" class="w-1/2 self-center mt-4">註冊</el-button>
+                    <NuxtLink :to="{ name: 'auth-login' }" class="h-full flex items-center">已有賬號？快去登入</NuxtLink>
+                    <el-button type="warning" class="w-1/2 self-center mt-4">註冊並登入</el-button>
                 </div>
             </div>
 
