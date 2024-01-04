@@ -1,7 +1,15 @@
 <script setup>
+import * as firebaseAuth from "firebase/auth";
+import { useAuthStore } from '@/stores/auth';
 // const openShoppingDialog = ref(false);
 
 const num = ref(1);
+const auth = firebaseAuth.getAuth();
+const authStore = useAuthStore();
+
+function logOut() {
+    firebaseAuth.signOut(auth);
+}
 </script>
 
 <template>
@@ -11,21 +19,21 @@ const num = ref(1);
             <img src="../img/cat2.png" alt="" class="h-[55px] ml-1" />
         </div>
         <ul class="flex h-full text-xl">
-            <li class="h-full  mx-4">
+            <li class="h-full mx-4">
                 <NuxtLink :to="{ name: 'index' }" class="h-full flex items-center">關於我們
                 </NuxtLink>
             </li>
-            <li class="h-full  mx-4">
+            <li class="h-full mx-4">
                 <NuxtLink :to="{ name: 'order' }" class="h-full flex items-center">線上訂購</NuxtLink>
             </li>
-            <li class="h-full  mx-4">
+            <li class="h-full mx-4">
                 <NuxtLink :to="{ name: 'reserve' }" class="h-full flex items-center">訂位資訊</NuxtLink>
             </li>
-            <li class="h-full  mx-4">
-                <NuxtLink :to="{ name: 'auth-login' }" class="h-full flex items-center">登入</NuxtLink>
+            <li class="h-full mx-4" v-if="!authStore.userInfo">
+                <NuxtLink :to="{ name: 'example-auth-login' }" class="h-full flex items-center">登入</NuxtLink>
             </li>
-            <li class="h-full  mx-4">
-                <NuxtLink :to="{ name: 'auth-register' }" class="h-full flex items-center">註冊</NuxtLink>
+            <li class="h-full mx-4" @click="logOut" v-else>
+                <span class="h-full flex items-center">登出</span>
             </li>
 
             <el-popover placement="bottom" title="" :width="350" trigger="click" content="">
