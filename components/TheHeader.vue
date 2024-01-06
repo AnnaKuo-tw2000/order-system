@@ -1,7 +1,6 @@
 <script setup>
 import * as firebaseAuth from "firebase/auth";
 import { useAuthStore } from '@/stores/auth';
-// const openShoppingDialog = ref(false);
 
 const num = ref(1);
 const auth = firebaseAuth.getAuth();
@@ -27,7 +26,7 @@ function logOut() {
                 <NuxtLink :to="{ name: 'order' }" class="h-full flex items-center">線上訂購</NuxtLink>
             </li>
             <li class="h-full mx-4">
-                <NuxtLink :to="{ name: 'reserve' }" class="h-full flex items-center">訂位資訊</NuxtLink>
+                <NuxtLink :to="{ name: 'auth-register' }" class="h-full flex items-center">訂位資訊</NuxtLink>
             </li>
             <li class="h-full mx-4" v-if="!authStore.userInfo">
                 <NuxtLink :to="{ name: 'example-auth-login' }" class="h-full flex items-center">登入</NuxtLink>
