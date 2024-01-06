@@ -1,7 +1,41 @@
 <script setup>
 import { Message, Lock } from '@element-plus/icons-vue';
+import * as firebaseAuth from "firebase/auth";
 
-const input2 = ref('');
+const email = ref('');
+const password = ref('');
+const auth = firebaseAuth.getAuth();
+const errMsg = ref('');
+
+function register() {
+    firebaseAuth
+        .createUserWithEmailAndPassword(auth, email.value, password.value)
+        .then(() => navigateTo({ name: 'order' }))
+        .catch((error) => {
+            console.log('error', error);
+            switch (error.code) {
+                // case 'auth/invalid-email':
+                //     errMsg.value = '無效的Email帳號';
+                //     break;
+                case 'auth/missing-email':
+                    errMsg.value = '請輸入正確的郵箱';
+                    break;
+                case 'auth/missing-password':
+                    errMsg.value = '請輸入正確的密碼';
+                    break;
+                case 'auth/weak-password':
+                    errMsg.value = '密碼至少為6個(含)以上的字符';
+                    break;
+                case 'auth/email-already-in-use':
+                    errMsg.value = 'Email帳號已註冊';
+                    break;
+                default:
+                    errMsg.value = 'Email帳號或密碼不符合規格!!!';
+                    break;
+            }
+            ElMessage.error(errMsg.value);
+        });
+}
 </script>
 
 <template>
@@ -20,11 +54,12 @@ const input2 = ref('');
                 </div>
                 <div class="w-1/2 flex flex-col">
                     <p>Email</p>
-                    <el-input v-model="input2" class="w-50" placeholder="" :prefix-icon="Message" />
+                    <el-input v-model="email" class="w-50" type="email" placeholder="" :prefix-icon="Message" />
                     <p>Password</p>
-                    <el-input v-model="input2" class="w-50" placeholder="" :prefix-icon="Lock" />
+                    <el-input v-model="password" class="w-50" type="password" placeholder="" :prefix-icon="Lock" />
                     <NuxtLink :to="{ name: 'auth-login' }" class="h-full flex items-center">已有賬號？快去登入</NuxtLink>
-                    <el-button type="warning" class="w-1/2 self-center mt-4">註冊並登入</el-button>
+                    <el-button type="warning" :plain="true" class="w-1/2 self-center mt-4"
+                        @click="register">註冊並登入</el-button>
                 </div>
             </div>
 
