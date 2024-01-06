@@ -1,7 +1,43 @@
 <script setup>
 import { Message, Lock } from '@element-plus/icons-vue';
+import * as firebaseAuth from "firebase/auth";
 
-const input2 = ref('');
+const email = ref('');
+const password = ref('');
+const errMsg = ref('');
+const auth = firebaseAuth.getAuth();
+
+const login = () => {
+    firebaseAuth.signInWithEmailAndPassword(auth, email.value, password.value)
+        .then((data) => {
+            console.log('成功登入', data);
+            navigateTo({ name: 'order' });
+        })
+        .catch((error) => {
+            console.log('error', error);
+            switch (error.code) {
+                // case 'auth/invalid-email':
+                //     errMsg.value = '無效的Email帳號';
+                //     break;
+                // case 'auth/missing-email':
+                //     errMsg.value = '請輸入正確的郵箱';
+                //     break;
+                // case 'auth/weak-password':
+                //     errMsg.value = '密碼至少為6個(含)以上的字符';
+                //     break;
+                case 'auth/missing-password':
+                    errMsg.value = '請輸入正確的密碼';
+                    break;
+                case 'auth/invalid-credential':
+                    errMsg.value = '請確認輸入的賬號和密碼是否正確';
+                    break;
+                default:
+                    errMsg.value = 'Email帳號或密碼不符合規格!!!';
+                    break;
+            }
+            ElMessage.error(errMsg.value);
+        });
+};
 </script>
 
 <template>
@@ -14,13 +50,13 @@ const input2 = ref('');
         <div class="w-[25%] h-[275px] border shadow-lg flex flex-col p-4 gap-1">
             <h1 class="text-xl font-semibold text-center mb-4">LOGIN</h1>
             <p>Email</p>
-            <el-input v-model="input2" class="w-50" placeholder="" :prefix-icon="Message" />
+            <el-input v-model="email" class="w-50" placeholder="" :prefix-icon="Message" />
             <p>Password</p>
-            <el-input v-model="input2" class="w-50" placeholder="" :prefix-icon="Lock" />
+            <el-input v-model="password" class="w-50" placeholder="" type="password" :prefix-icon="Lock" />
             <NuxtLink :to="{ name: 'auth-register' }" class="h-full flex items-center">還沒註冊？快點去吧！</NuxtLink>
             <div class="flex justify-center mt-2 w-full">
                 <el-button type="info" class="w-1/2">取消</el-button>
-                <el-button type="warning" class="w-1/2">確認</el-button>
+                <el-button type="warning" :plain="true" class="w-1/2" @click="login">確認</el-button>
             </div>
         </div>
 
