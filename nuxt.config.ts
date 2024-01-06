@@ -29,14 +29,14 @@ export default defineNuxtConfig({
     },
     vuefire: {
         config: {
-            apiKey: "AIzaSyBYOLjcRMLwpHrRNLP9xoCZNU_nzFftIDs",
-            authDomain: "shopping-mall-e152a.firebaseapp.com",
+            apiKey: "AIzaSyC-ZCnNSuIHeOQ6NGwzm5kxYdmSDPRL1Eg",
+            authDomain: "order-system-9e3d6.firebaseapp.com",
             databaseURL:
-                "https://shopping-mall-e152a-default-rtdb.firebaseio.com",
-            projectId: "shopping-mall-e152a",
-            storageBucket: "shopping-mall-e152a.appspot.com",
-            messagingSenderId: "527007619675",
-            appId: "1:527007619675:web:12f356f6a9022b8c497d7e",
+                "https://order-system-9e3d6-default-rtdb.asia-southeast1.firebasedatabase.app/",
+            projectId: "order-system-9e3d6",
+            storageBucket: "gs://order-system-9e3d6.appspot.com",
+            messagingSenderId: "1049564664888",
+            appId: "1:1049564664888:web:fa4fabaa853ee644c942cd",
         },
         auth: {
             enabled: true,
