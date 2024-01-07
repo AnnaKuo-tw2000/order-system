@@ -13,6 +13,14 @@ const foodTitle = ref('');
 const foodPrice = ref('');
 const fileList = ref([]);
 
+// 放大鏡預覽圖片
+const dialogImageUrl = ref('');
+const dialogVisible = ref(false);
+const handlePreview = (uploadFile) => {
+    dialogImageUrl.value = uploadFile.url;
+    dialogVisible.value = true;
+};
+
 // 上傳到訂餐列表
 function uploadToFoodList() {
     // 上傳的圖片陣列中的第一個
@@ -103,14 +111,14 @@ function addToShoppingCart() {
                 </div>
                 <div class="flex gap-3  mt-2 flex-wrap">
                     <p>圖片:</p>
-                    <el-upload v-model:file-list="fileList" :on-preview="handlePreview" :on-remove="handleRemove" action="#"
-                        list-type="picture-card" :auto-upload="false" class="text-center">
+                    <el-upload v-model:file-list="fileList" :on-preview="handlePreview" action="#" list-type="picture-card"
+                        :auto-upload="false" class="text-center">
                         <el-icon class="avatar-uploader-icon">
                             <Plus />
                         </el-icon>
-                        <!-- <el-dialog v-model="dialogVisible">
+                        <el-dialog v-model="dialogVisible">
                             <img w-full :src="dialogImageUrl" alt="Preview Image" />
-                        </el-dialog> -->
+                        </el-dialog>
                     </el-upload>
                     <el-button round class="self-end" @click="uploadToFoodList">新增</el-button>
 
@@ -126,7 +134,7 @@ function addToShoppingCart() {
             <div class="flex flex-wrap px-2 w-full gap-6">
                 <div v-for="food in foodList" :key="food.uid"
                     class="flex flex-col w-[250px] h-[300px]  items-center shadow-lg text-center">
-                    <img :src="food.imageUrl" alt="" class="mb-5">
+                    <img :src="food.imageUrl" alt="" class="mb-5 w-[100px] h-[100px] object-cover">
                     <div class="text-2xl leading-loose font-semibold">{{ food.title }}</div>
                     <div class=" w-24 border-b border-black mb-3"></div>
                     <div class="text-xl font-semibold mb-1">${{ food.price }}</div>
@@ -157,7 +165,6 @@ function addToShoppingCart() {
 :deep() {
     .el-input {
         width: 70%;
-        border: 1px solid #451a03;
     }
 }
 </style>
