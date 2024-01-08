@@ -11,20 +11,16 @@ const login = () => {
     firebaseAuth.signInWithEmailAndPassword(auth, email.value, password.value)
         .then((data) => {
             console.log('成功登入', data);
-            navigateTo({ name: 'order' });
+            const { uid } = data.user;
+            if (uid === 'rFMULacV6NdOiqTfGH99sNDXwNg1') {
+                navigateTo({ name: 'order-AdminOrderPage' });
+            } else {
+                navigateTo({ name: 'order-UserOrderPage' });
+            }
         })
         .catch((error) => {
             console.log('error', error);
             switch (error.code) {
-                // case 'auth/invalid-email':
-                //     errMsg.value = '無效的Email帳號';
-                //     break;
-                // case 'auth/missing-email':
-                //     errMsg.value = '請輸入正確的郵箱';
-                //     break;
-                // case 'auth/weak-password':
-                //     errMsg.value = '密碼至少為6個(含)以上的字符';
-                //     break;
                 case 'auth/missing-password':
                     errMsg.value = '請輸入正確的密碼';
                     break;
