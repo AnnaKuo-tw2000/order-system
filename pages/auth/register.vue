@@ -10,7 +10,7 @@ const errMsg = ref('');
 function register() {
     firebaseAuth
         .createUserWithEmailAndPassword(auth, email.value, password.value)
-        .then(() => navigateTo({ name: 'order' }))
+        .then(() => navigateTo({ name: 'order-UserOrderPage' }))
         .catch((error) => {
             console.log('error', error);
             switch (error.code) {
