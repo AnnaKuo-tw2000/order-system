@@ -23,7 +23,7 @@ function logOut() {
                 </NuxtLink>
             </li>
             <li class="h-full mx-4">
-                <NuxtLink :to="{ name: 'order' }" class="h-full flex items-center">線上訂購</NuxtLink>
+                <NuxtLink :to="{ name: 'order-UserOrderPage' }" class="h-full flex items-center">線上訂購</NuxtLink>
             </li>
             <li class="h-full mx-4">
                 <NuxtLink :to="{ name: 'auth-register' }" class="h-full flex items-center">訂位資訊</NuxtLink>
