@@ -2,12 +2,11 @@
 import { Plus } from '@element-plus/icons-vue';
 import * as firebaseSto from "firebase/storage";
 import * as firebaseDb from "firebase/database";
-// import * as firebaseAuth from "firebase/auth";
+import { useAuthStore } from '@/stores/auth';
 
-// const auth = firebaseAuth.getAuth();
 const storage = firebaseSto.getStorage();
 const db = firebaseDb.getDatabase();
-
+const authStore = useAuthStore();
 // 上傳列表
 const foodTitle = ref('');
 const foodPrice = ref('');
@@ -46,7 +45,7 @@ function uploadToFoodList() {
                         price: foodPrice.value,
                         imageUrl: imgUrl,
                         imageName: targetFile.name,
-                        uid: timestamp
+                        uid: timestamp,
                     }).then(() => {
                         getFoodList();
                         foodTitle.value = '';
@@ -93,8 +92,12 @@ function editFood(selectedFood) {
             imageName: selectedFood.imageName
         }
     ];
+    console.log(editFileList.value, selectedFood);
     EditDialog.value = true;
 }
+
+const isUpdateDisabled = computed(() => editFoodTitle.value === selectedFoodSnapshot.title
+    && editFoodPrice.value === selectedFoodSnapshot.price && editFileList.value[0].imageName === selectedFoodSnapshot.imageName);
 
 // 更新商品資訊
 function updateFoodInfo() {
@@ -134,7 +137,7 @@ function deleteFoodInfo(selectedFood) {
     firebaseDb.remove(firebaseDb.ref(db, `foodInfo/${selectedFood.uid}`)).then(() => {
         getFoodList();
         console.log(111);
-    });
+    }).then(() => { firebaseDb.remove(firebaseDb.ref(db, `userInfo/${authStore.userInfo.uid}/shoppingCart/${selectedFood.uid}`)); });
 }
 </script>
 
@@ -152,7 +155,7 @@ function deleteFoodInfo(selectedFood) {
                 <div class="flex gap-3  mt-2 flex-wrap">
                     <p>圖片:</p>
                     <el-upload v-model:file-list="fileList" :on-preview="handlePreview" action="#" list-type="picture-card"
-                        :auto-upload="false" class="text-center">
+                        :auto-upload="false" class="text-center" :class="{ hide: fileList.length > 0 }">
                         <el-icon class="avatar-uploader-icon">
                             <Plus />
                         </el-icon>
@@ -192,7 +195,8 @@ function deleteFoodInfo(selectedFood) {
                             <div class="flex gap-3 mt-2">
                                 <p>圖片:</p>
                                 <el-upload v-model:file-list="editFileList" :on-preview="handleEditPreview" action="#"
-                                    list-type="picture-card" :auto-upload="false" class="text-center">
+                                    list-type="picture-card" :auto-upload="false" class="text-center"
+                                    :class="{ hide: editFileList.length > 0 }">
                                     <el-icon class="avatar-uploader-icon">
                                         <Plus />
                                     </el-icon>
@@ -205,7 +209,8 @@ function deleteFoodInfo(selectedFood) {
                         <template #footer>
                             <span class="dialog-footer">
                                 <el-button @click="EditDialog = false">取消</el-button>
-                                <el-button type="primary" @click="updateFoodInfo">確認</el-button>
+                                <el-button type="primary" @click="updateFoodInfo"
+                                    :disabled="isUpdateDisabled">確認</el-button>
                             </span>
                         </template>
                     </el-dialog>
@@ -221,6 +226,12 @@ function deleteFoodInfo(selectedFood) {
 :deep() {
     .el-input {
         width: 70%;
+    }
+}
+
+.hide {
+    div.el-upload.el-upload--picture-card {
+        display: none;
     }
 }
 </style>
