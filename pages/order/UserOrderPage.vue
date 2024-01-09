@@ -1,58 +1,12 @@
 <script setup>
-// import { Plus } from '@element-plus/icons-vue';
-// import * as firebaseSto from "firebase/storage";
+// import { useAuthStore } from '@/stores/auth';
+
+// const authStore = useAuthStore();
 import * as firebaseDb from "firebase/database";
 import * as firebaseAuth from "firebase/auth";
 
 const auth = firebaseAuth.getAuth();
-// const storage = firebaseSto.getStorage();
 const db = firebaseDb.getDatabase();
-
-// // 上傳列表
-// const foodTitle = ref('');
-// const foodPrice = ref('');
-// const fileList = ref([]);
-
-// // 放大鏡預覽圖片
-// const dialogImageUrl = ref('');
-// const dialogVisible = ref(false);
-// const handlePreview = (uploadFile) => {
-//     dialogImageUrl.value = uploadFile.url;
-//     dialogVisible.value = true;
-// };
-
-// // 上傳到訂餐列表
-// function uploadToFoodList() {
-//     // 上傳的圖片陣列中的第一個
-//     const targetFile = fileList.value[0].raw;
-//     // 儲存路徑
-//     const fileRef = firebaseSto.ref(storage, `food-images/${targetFile.name}`);
-//     // console.log(fileList.value);
-//     // 上傳圖片
-//     firebaseSto.uploadBytes(fileRef, targetFile)
-//         // 取得上傳圖片的URL
-//         .then(() => {
-//             firebaseSto.getDownloadURL(fileRef)
-//                 // 在 Realtime Database 中儲存食物相關資訊
-//                 .then((imgUrl) => {
-//                     console.log('imgUrl', imgUrl);
-//                     const timestamp = Date.now();
-//                     firebaseDb.set(firebaseDb.ref(db, `foodInfo/${timestamp}`), {
-//                         title: foodTitle.value,
-//                         price: foodPrice.value,
-//                         imageUrl: imgUrl,
-//                         uid: timestamp
-//                     }).then(() => {
-//                         getFoodList();
-//                         foodTitle.value = '';
-//                         foodPrice.value = null;
-//                         fileList.value = [];
-//                     });
-//                 })
-//                 .catch((err) => console.log(err));
-//         })
-//         .catch((err) => console.log(err));
-// }
 
 // 訂餐列表
 const foodList = ref([]);
@@ -73,11 +27,25 @@ getFoodList();
 
 // 提示框
 const open_loginAlertDialog = ref(false);
-
-function addToShoppingCart() {
+// 添加至購物車
+const cartStore = useCartStore();
+function addToShoppingCart(food) {
     firebaseAuth.onAuthStateChanged(auth, (user) => {
-        if (user) {
-            console.log('有人登錄');
+        // 如果有人登錄才能加入購物車
+        let num = 1;
+        if (user.uid) {
+            if (cartStore.cartList) {
+                console.log('有東西');
+                // 同樣的東西
+                const targetFood = cartStore.cartList.find((item) => item.uid === food.uid);
+                if (targetFood) { num = targetFood.num + 1; }
+            }
+            // 不同的東西直接加
+            console.log('沒東西');
+            firebaseDb.set(firebaseDb.ref(db, `userInfo/${user.uid}/shoppingCart/${food.uid}`), {
+                ...food,
+                num
+            });
         } else {
             open_loginAlertDialog.value = true;
         }
@@ -112,7 +80,7 @@ function addToShoppingCart() {
                     <div class="text-2xl leading-loose font-semibold">{{ food.title }}</div>
                     <div class=" w-24 border-b border-black mb-3"></div>
                     <div class="text-xl font-semibold mb-1">${{ food.price }}</div>
-                    <el-button class="w-[90%] mt-5" @click="addToShoppingCart">加入購物車</el-button>
+                    <el-button class="w-[90%] mt-5" @click="addToShoppingCart(food)">加入購物車</el-button>
                 </div>
             </div>
         </section>
