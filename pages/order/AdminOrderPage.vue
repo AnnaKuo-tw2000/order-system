@@ -20,6 +20,12 @@ const handlePreview = (uploadFile) => {
     dialogImageUrl.value = uploadFile.url;
     dialogVisible.value = true;
 };
+const editDialogImageUrl = ref('');
+const editDialogVisible = ref(false);
+const handleEditPreview = (uploadFile) => {
+    editDialogImageUrl.value = uploadFile.url;
+    editDialogVisible.value = true;
+};
 
 // 上傳到訂餐列表
 function uploadToFoodList() {
@@ -27,7 +33,6 @@ function uploadToFoodList() {
     const targetFile = fileList.value[0].raw;
     // 儲存路徑
     const fileRef = firebaseSto.ref(storage, `food-images/${targetFile.name}`);
-    console.log(fileList.value);
     // 上傳圖片
     firebaseSto.uploadBytes(fileRef, targetFile)
         // 取得上傳圖片的URL
@@ -35,7 +40,6 @@ function uploadToFoodList() {
             firebaseSto.getDownloadURL(fileRef)
                 // 在 Realtime Database 中儲存食物相關資訊
                 .then((imgUrl) => {
-                    console.log('imgUrl', imgUrl);
                     const timestamp = Date.now();
                     firebaseDb.set(firebaseDb.ref(db, `foodInfo/${timestamp}`), {
                         title: foodTitle.value,
@@ -61,11 +65,8 @@ const foodList = ref([]);
 function getFoodList() {
     firebaseDb.get(firebaseDb.ref(db, "foodInfo"))
         .then((snapshot) => {
-            if (snapshot.exists()) {
-                // 是商品的物件
-                foodList.value = snapshot.val();
-                console.log(foodList.value);
-            }
+            // 是商品的物件
+            foodList.value = snapshot.val();
         }).catch((error) => {
             console.error(error);
         });
@@ -81,77 +82,59 @@ const editFileList = ref([]);
 // 編輯商品
 
 let selectedFoodSnapshot = null;
-function editFood(uid) {
-    // 從foodList.value中選取uid屬性對應的值
-    const selectedFood = foodList.value[uid];
-    console.log(selectedFood);
+function editFood(selectedFood) {
     // 在編輯時保存 selectedFood的snapshot
-    selectedFoodSnapshot = selectedFood ? { ...selectedFood } : null;
-    if (selectedFood) {
-        editFoodTitle.value = selectedFood.title;
-        editFoodPrice.value = selectedFood.price;
-        editFileList.value = [
-            {
-                url: selectedFood.imageUrl,
-                imageName: selectedFood.imageName
-            }
-        ];
-    }
-    updateFoodInfo(uid);
+    selectedFoodSnapshot = selectedFood;
+    editFoodTitle.value = selectedFood.title;
+    editFoodPrice.value = selectedFood.price;
+    editFileList.value = [
+        {
+            url: selectedFood.imageUrl,
+            imageName: selectedFood.imageName
+        }
+    ];
     EditDialog.value = true;
 }
 
 // 更新商品資訊
 function updateFoodInfo() {
-    // 和原本的進行比對有變更才執行
-    if (selectedFoodSnapshot) {
-        console.log(selectedFoodSnapshot, editFileList.value[0]);
-        // 變更商品名和價格
-        if (
-            selectedFoodSnapshot.title !== editFoodTitle.value
-            || selectedFoodSnapshot.price !== editFoodPrice.value
-
-        ) {
-            firebaseDb.remove(firebaseDb.ref(db, `foodInfo/${selectedFoodSnapshot.uid}`)).then(() => {
-                firebaseDb.set(firebaseDb.ref(db, `foodInfo/${selectedFoodSnapshot.uid}`), {
+    // 判斷圖片是否變更
+    if (selectedFoodSnapshot.imageUrl !== editFileList.value[0].url) {
+        // 拿到新圖片的文件本體
+        const newImageFile = editFileList.value[0].raw;
+        const newImageRef = firebaseSto.ref(storage, `food-images/${newImageFile.name}`);
+        firebaseSto.uploadBytes(newImageRef, newImageFile).then(() => {
+            firebaseSto.getDownloadURL(newImageRef).then((imgUrl) => {
+                firebaseDb.update(firebaseDb.ref(db, `foodInfo/${selectedFoodSnapshot.uid}`), {
                     title: editFoodTitle.value,
                     price: editFoodPrice.value,
-                    imageUrl: selectedFoodSnapshot.imageUrl,
-                    uid: selectedFoodSnapshot.uid
+                    imageName: newImageFile.name,
+                    imageUrl: imgUrl
+                }).then(() => {
+                    // 更新畫面的訂餐列表
+                    getFoodList();
+                    firebaseSto.deleteObject(firebaseSto.ref(storage, `food-images/${selectedFoodSnapshot.name}`));
                 });
             });
-            console.log('有變更商品名和價格才會跑');
-
-            //  變更商品圖
-        } else if (selectedFoodSnapshot.imageUrl !== editFileList.value[0].url) {
-            console.log('圖變了');
-            // 取得新的圖片檔案
-            const newImageFile = editFileList.value[0];
-            // 新圖片路徑
-            const newImageRef = firebaseSto.ref(storage, `food-images/${newImageFile.name}`);
-
-            // 刪除先前的圖片的路徑
-            const previousImageRef = firebaseSto.ref(storage, `food-images/${selectedFoodSnapshot.imageName}`);
-            // 刪除先前的圖片
-            firebaseSto.deleteObject(firebaseSto.ref(db, previousImageRef)).then(() => {
-                // 上傳圖片
-                firebaseSto.uploadBytes(newImageRef, newImageFile).then(() => {
-                    // 上傳成功後，更新商品資訊中的圖片 URL
-                    firebaseDb.update(firebaseDb.ref(db, `foodInfo/${selectedFoodSnapshot.uid}`), {
-                        imageUrl: newImageFile.url
-                    });
-                });
-            });
-        }
+        });
+    } else {
+        firebaseDb.update(firebaseDb.ref(db, `foodInfo/${selectedFoodSnapshot.uid}`), {
+            title: editFoodTitle.value,
+            price: editFoodPrice.value,
+        }).then(() => {
+            // 更新畫面的訂餐列表
+            getFoodList();
+        });
     }
-
     EditDialog.value = false;
 }
 
 // 刪除商品
-function deleteFoodInfo(uid) {
-    const selectedFood = foodList.value[uid];
-    firebaseDb.remove(firebaseDb.ref(db, `foodInfo/${selectedFood.uid}`));
+function deleteFoodInfo(selectedFood) {
+    firebaseDb.remove(firebaseDb.ref(db, `foodInfo/${selectedFood.uid}`)).then(() => {
+        getFoodList();
+        console.log(111);
+    });
 }
 </script>
 
@@ -173,10 +156,10 @@ function deleteFoodInfo(uid) {
                         <el-icon class="avatar-uploader-icon">
                             <Plus />
                         </el-icon>
-                        <el-dialog v-model="dialogVisible">
-                            <img w-full :src="dialogImageUrl" alt="Preview Image" />
-                        </el-dialog>
                     </el-upload>
+                    <el-dialog v-model="dialogVisible">
+                        <img w-full :src="dialogImageUrl" alt="Preview Image" />
+                    </el-dialog>
                     <el-button round class="self-end" @click="uploadToFoodList">上傳</el-button>
 
                 </div>
@@ -196,8 +179,8 @@ function deleteFoodInfo(uid) {
                     <div class=" w-24 border-b border-black mb-3"></div>
                     <div class="text-xl font-semibold mb-1">${{ food.price }}</div>
                     <div class='flex mt-5'>
-                        <el-button @click="editFood(food.uid)">編輯</el-button>
-                        <el-button @click="deleteFoodInfo(food.uid)">刪除</el-button>
+                        <el-button @click="editFood(food)">編輯</el-button>
+                        <el-button @click="deleteFoodInfo(food)">刪除</el-button>
                     </div>
                     <!-- 編輯框 -->
                     <el-dialog v-model="EditDialog" title="商品編輯" width="40%">
@@ -208,21 +191,21 @@ function deleteFoodInfo(uid) {
                             </div>
                             <div class="flex gap-3 mt-2">
                                 <p>圖片:</p>
-                                <el-upload v-model:file-list="editFileList" :on-preview="handlePreview" action="#"
+                                <el-upload v-model:file-list="editFileList" :on-preview="handleEditPreview" action="#"
                                     list-type="picture-card" :auto-upload="false" class="text-center">
                                     <el-icon class="avatar-uploader-icon">
                                         <Plus />
                                     </el-icon>
-                                    <el-dialog v-model="dialogVisible">
-                                        <img w-full :src="dialogImageUrl" alt="Preview Image" />
-                                    </el-dialog>
                                 </el-upload>
+                                <el-dialog v-model="editDialogVisible">
+                                    <img w-full :src="editDialogImageUrl" alt="Preview Image" />
+                                </el-dialog>
                             </div>
                         </span>
                         <template #footer>
                             <span class="dialog-footer">
                                 <el-button @click="EditDialog = false">取消</el-button>
-                                <el-button type="primary" @click="updateFoodInfo()">確認</el-button>
+                                <el-button type="primary" @click="updateFoodInfo">確認</el-button>
                             </span>
                         </template>
                     </el-dialog>
