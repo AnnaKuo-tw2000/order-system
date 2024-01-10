@@ -37,10 +37,10 @@ const login = () => {
 </script>
 
 <template>
-    <div class="bg-[url('/img/bg.jpg')] text-amber-950 py-5 flex flex-col items-center">
+    <div class="bg-[url('/img/bg-1.jpg')] text-amber-950 py-5 flex flex-col items-center">
         <div class="flex items-center justify-center mb-4">
             <h1 class="text-5xl font-black">小咪西餐廳</h1>
-            <img src="../../img/cat2.png" alt="" class="w-[12%]">
+            <img src="../../img/logo.png" alt="" class="w-[12%]">
         </div>
         <p class="text-2xl font-semibold mb-3 relative bottom-5">享受美食好味道</p>
         <div class="w-[25%] h-[275px] border shadow-lg flex flex-col p-4 gap-1">

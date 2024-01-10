@@ -7,16 +7,16 @@ import { KnifeFork } from '@element-plus/icons-vue';
     <div class="relative">
         <el-carousel height="100vw" autoplay>
             <el-carousel-item>
-                <img src="../img/food1.jpg" alt="" class="">
+                <img src="../img/banner-1.jpg" alt="" class="">
             </el-carousel-item>
             <el-carousel-item>
-                <img src="../img/food3.jpg" alt="">
+                <img src="../img/banner-2.jpg" alt="">
             </el-carousel-item>
             <el-carousel-item>
-                <img src="../img/food4.jpg" alt="">
+                <img src="../img/banner-3.jpg" alt="">
             </el-carousel-item>
             <el-carousel-item>
-                <img src="../img/food5.jpg" alt="">
+                <img src="../img/banner-4.jpg" alt="">
             </el-carousel-item>
         </el-carousel>
         <div

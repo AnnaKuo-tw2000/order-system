@@ -38,7 +38,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="bg-[url('/img/bg.jpg')] ">
+    <div class="bg-[url('/img/bg-1.jpg')] ">
         <section id="titleSection" class=" py-12 px-20 text-amber-950 flex justify-between items-center">
             <div id="leftContent" class="fadeInLeft w-auto ">
                 <h1 class="text-4xl">小咪西餐廳</h1>
@@ -67,14 +67,14 @@ onMounted(() => {
             <div class="flex justify-evenly">
                 <div class="w-1/3 flex flex-col items-center gap-2 px-2.5 py-2.5 ">
                     <div>
-                        <img src=" ../img/feature_1.png" alt="" class="rounded-full">
+                        <img src=" ../img/feature-1.png" alt="" class="rounded-full">
                     </div>
                     <div class="text-2xl font-medium">台灣本土蔬菜</div>
                     <p class="text-lg">本店嚴選最新鮮的當季蔬菜，來自當地優質農田。每道料理都注重新鮮風味，以保留蔬菜的天然美味。我們致力於提供新鮮、營養豐富的蔬食饗宴，為您呈現最令人垂涎的美食體驗。</p>
                 </div>
                 <div class="w-1/3 flex flex-col items-center gap-2 px-2.5 py-2.5">
                     <div class="">
-                        <img src="../img/feature_2.png" alt="" class="rounded-full ">
+                        <img src="../img/feature-2.png" alt="" class="rounded-full ">
                     </div>
                     <div class="text-2xl font-medium">專業米其林廚師</div>
                     <p class="text-lg">
@@ -82,7 +82,7 @@ onMounted(() => {
                 </div>
                 <div class="w-1/3 flex flex-col items-center gap-2 px-2.5 py-2.5">
                     <div class="">
-                        <img src="../img/feature_3.png" alt="" class="rounded-full ">
+                        <img src="../img/feature-3.png" alt="" class="rounded-full ">
                     </div>
                     <div class="text-2xl font-medium">對於專業不能退讓</div>
                     <p class="text-lg">
@@ -134,9 +134,9 @@ onMounted(() => {
                         除了葷食外也貼心提供素食用餐者專屬菜單，歡迎你們來品嚐分享喔！</p>
                 </div>
                 <div class="h-1/2 flex justify-center gap-6 ">
-                    <img src="../img/food7.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
-                    <img src="../img/food8.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
-                    <img src="../img/food9.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
+                    <img src="../img/popular-1.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
+                    <img src="../img/popular-2.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
+                    <img src="../img/popular-3.jpg" alt="" class="w-1/5 hover:scale-110 transition-all duration-700">
                 </div>
             </div>
         </section>

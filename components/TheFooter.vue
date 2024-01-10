@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="bg-[url('/img/bg.jpg')] h-[200px] flex justify-between items-center p-20 text-amber-950">
+    <div class="bg-[url('/img/bg-1.jpg')] h-[200px] flex justify-between items-center p-20 text-amber-950">
         <div class="">
             <h1 class="leading-loose text-xl font-semibold">台中店</h1>
             <ul>
@@ -18,7 +18,7 @@
             <div class="flex h-[40%]  mb-2">
                 <div class="flex items-center ">
                     <h1 class=" text-5xl font-extrabold">小咪西餐廳</h1>
-                    <img src="../img/cat2.png" alt="" class="w-[20%]">
+                    <img src="../img/logo.png" alt="" class="w-[20%]">
                 </div>
             </div>
             <div class="flex gap-2 justify-end">
