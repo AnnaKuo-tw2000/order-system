@@ -11,6 +11,7 @@ const authStore = useAuthStore();
 const foodTitle = ref('');
 const foodPrice = ref('');
 const fileList = ref([]);
+const FoodCategory = ref('');
 
 // 放大鏡預覽圖片
 const dialogImageUrl = ref('');
@@ -27,6 +28,7 @@ const handleEditPreview = (uploadFile) => {
 };
 
 // 上傳到訂餐列表
+const errMsg = ref('');
 function uploadToFoodList() {
     // 上傳的圖片陣列中的第一個
     const targetFile = fileList.value[0].raw;
@@ -43,6 +45,7 @@ function uploadToFoodList() {
                     firebaseDb.set(firebaseDb.ref(db, `foodInfo/${timestamp}`), {
                         title: foodTitle.value,
                         price: foodPrice.value,
+                        type: FoodCategory.value,
                         imageUrl: imgUrl,
                         imageName: targetFile.name,
                         uid: timestamp,
@@ -50,12 +53,20 @@ function uploadToFoodList() {
                         getFoodList();
                         foodTitle.value = '';
                         foodPrice.value = null;
+                        FoodCategory.value = '';
                         fileList.value = [];
                     });
                 })
                 .catch((err) => console.log(err));
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            console.log(err);
+            if (err.code === 'storage/unauthorized') {
+                errMsg.value = '非管理員無法使用該頁面,一般用戶請至訂購頁訂餐';
+                ElMessage.error(errMsg.value);
+                navigateTo({ name: 'order-UserOrderPage' });
+            }
+        });
 }
 
 // 訂餐列表
@@ -77,7 +88,7 @@ const EditDialog = ref(false);
 const editFoodTitle = ref('');
 const editFoodPrice = ref('');
 const editFileList = ref([]);
-
+const editFoodCategory = ref('');
 // 編輯商品
 
 let selectedFoodSnapshot = null;
@@ -86,6 +97,7 @@ function editFood(selectedFood) {
     selectedFoodSnapshot = selectedFood;
     editFoodTitle.value = selectedFood.title;
     editFoodPrice.value = selectedFood.price;
+    editFoodCategory.value = selectedFood.type;
     editFileList.value = [
         {
             url: selectedFood.imageUrl,
@@ -93,6 +105,7 @@ function editFood(selectedFood) {
         }
     ];
     console.log(editFileList.value, selectedFood);
+    console.log(foodList.value);
     EditDialog.value = true;
 }
 
@@ -111,6 +124,7 @@ function updateFoodInfo() {
                 firebaseDb.update(firebaseDb.ref(db, `foodInfo/${selectedFoodSnapshot.uid}`), {
                     title: editFoodTitle.value,
                     price: editFoodPrice.value,
+                    type: editFoodCategory.value,
                     imageName: newImageFile.name,
                     imageUrl: imgUrl
                 }).then(() => {
@@ -124,6 +138,7 @@ function updateFoodInfo() {
         firebaseDb.update(firebaseDb.ref(db, `foodInfo/${selectedFoodSnapshot.uid}`), {
             title: editFoodTitle.value,
             price: editFoodPrice.value,
+            type: editFoodCategory.value
         }).then(() => {
             // 更新畫面的訂餐列表
             getFoodList();
@@ -139,10 +154,11 @@ function deleteFoodInfo(selectedFood) {
         console.log(111);
     }).then(() => { firebaseDb.remove(firebaseDb.ref(db, `userInfo/${authStore.userInfo.uid}/shoppingCart/${selectedFood.uid}`)); });
 }
+
 </script>
 
 <template>
-    <div class="bg-[url('/img/bg.jpg')]  p-12 flex justify-center gap-10 text-amber-950 w-full">
+    <div class="bg-[url('/img/bg-1.jpg')]  p-12 flex justify-center gap-10 text-amber-950 w-full">
 
         <!-- 管理員操作訂餐列表 -->
         <section class="w-1/5 shadow-lg p-3">
@@ -151,6 +167,8 @@ function deleteFoodInfo(selectedFood) {
                 <div>商品名稱：<el-input v-model="foodTitle" class="w-50 m-2" size="small" />
                 </div>
                 <div>商品價格：<el-input v-model="foodPrice" class="w-50 m-2" size="small" />
+                </div>
+                <div>商品類別：<el-input v-model="FoodCategory" class="w-50 m-2" size="small" />
                 </div>
                 <div class="flex gap-3  mt-2 flex-wrap">
                     <p>圖片:</p>
@@ -191,6 +209,8 @@ function deleteFoodInfo(selectedFood) {
                             <div>商品名稱：<el-input v-model="editFoodTitle" class="w-50 m-2" size="small" />
                             </div>
                             <div>商品價格：<el-input v-model="editFoodPrice" class="w-50 m-2" size="small" />
+                            </div>
+                            <div>商品類別：<el-input v-model="editFoodCategory" class="w-50 m-2" size="small" />
                             </div>
                             <div class="flex gap-3 mt-2">
                                 <p>圖片:</p>
