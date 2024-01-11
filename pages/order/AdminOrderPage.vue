@@ -104,13 +104,13 @@ function editFood(selectedFood) {
             imageName: selectedFood.imageName
         }
     ];
-    console.log(editFileList.value, selectedFood);
-    console.log(foodList.value);
     EditDialog.value = true;
 }
 
-const isUpdateDisabled = computed(() => editFoodTitle.value === selectedFoodSnapshot.title
-    && editFoodPrice.value === selectedFoodSnapshot.price && editFileList.value[0].imageName === selectedFoodSnapshot.imageName);
+const isUpdateDisabled = computed(() => !(editFileList.value[0] && (editFoodTitle.value !== selectedFoodSnapshot.title
+    || editFoodPrice.value !== selectedFoodSnapshot.price
+    || editFileList.value[0].imageName !== selectedFoodSnapshot.imageName
+)));
 
 // 更新商品資訊
 function updateFoodInfo() {
@@ -130,7 +130,7 @@ function updateFoodInfo() {
                 }).then(() => {
                     // 更新畫面的訂餐列表
                     getFoodList();
-                    firebaseSto.deleteObject(firebaseSto.ref(storage, `food-images/${selectedFoodSnapshot.name}`));
+                    firebaseSto.deleteObject(firebaseSto.ref(storage, `food-images/${selectedFoodSnapshot.imageName}`));
                 });
             });
         });
@@ -203,41 +203,39 @@ function deleteFoodInfo(selectedFood) {
                         <el-button @click="editFood(food)">編輯</el-button>
                         <el-button @click="deleteFoodInfo(food)">刪除</el-button>
                     </div>
-                    <!-- 編輯框 -->
-                    <el-dialog v-model="EditDialog" title="商品編輯" width="40%">
-                        <span>
-                            <div>商品名稱：<el-input v-model="editFoodTitle" class="w-50 m-2" size="small" />
-                            </div>
-                            <div>商品價格：<el-input v-model="editFoodPrice" class="w-50 m-2" size="small" />
-                            </div>
-                            <div>商品類別：<el-input v-model="editFoodCategory" class="w-50 m-2" size="small" />
-                            </div>
-                            <div class="flex gap-3 mt-2">
-                                <p>圖片:</p>
-                                <el-upload v-model:file-list="editFileList" :on-preview="handleEditPreview" action="#"
-                                    list-type="picture-card" :auto-upload="false" class="text-center"
-                                    :class="{ hide: editFileList.length > 0 }">
-                                    <el-icon class="avatar-uploader-icon">
-                                        <Plus />
-                                    </el-icon>
-                                </el-upload>
-                                <el-dialog v-model="editDialogVisible">
-                                    <img w-full :src="editDialogImageUrl" alt="Preview Image" />
-                                </el-dialog>
-                            </div>
-                        </span>
-                        <template #footer>
-                            <span class="dialog-footer">
-                                <el-button @click="EditDialog = false">取消</el-button>
-                                <el-button type="primary" @click="updateFoodInfo"
-                                    :disabled="isUpdateDisabled">確認</el-button>
-                            </span>
-                        </template>
-                    </el-dialog>
-
                 </div>
             </div>
         </section>
+        <!-- 編輯彈窗 -->
+        <el-dialog v-model="EditDialog" title="商品編輯" width="40%">
+            <span>
+                <div>商品名稱：<el-input v-model="editFoodTitle" class="w-50 m-2" size="small" />
+                </div>
+                <div>商品價格：<el-input v-model="editFoodPrice" class="w-50 m-2" size="small" />
+                </div>
+                <div>商品類別：<el-input v-model="editFoodCategory" class="w-50 m-2" size="small" />
+                </div>
+                <div class="flex gap-3 mt-2">
+                    <p>圖片:</p>
+                    <el-upload v-model:file-list="editFileList" :on-preview="handleEditPreview" action="#"
+                        list-type="picture-card" :auto-upload="false" class="text-center"
+                        :class="{ hide: editFileList.length > 0 }">
+                        <el-icon class="avatar-uploader-icon">
+                            <Plus />
+                        </el-icon>
+                    </el-upload>
+                    <el-dialog v-model="editDialogVisible">
+                        <img w-full :src="editDialogImageUrl" alt="Preview Image" />
+                    </el-dialog>
+                </div>
+            </span>
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button @click="EditDialog = false">取消</el-button>
+                    <el-button type="primary" @click="updateFoodInfo" :disabled="isUpdateDisabled">確認</el-button>
+                </span>
+            </template>
+        </el-dialog>
 
     </div>
 </template>
@@ -247,11 +245,11 @@ function deleteFoodInfo(selectedFood) {
     .el-input {
         width: 70%;
     }
-}
 
-.hide {
-    div.el-upload.el-upload--picture-card {
-        display: none;
+    .hide {
+        div.el-upload.el-upload--picture-card {
+            display: none;
+        }
     }
 }
 </style>
