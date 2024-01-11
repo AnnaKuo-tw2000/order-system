@@ -103,7 +103,7 @@ const filterFoodList = computed(() => {
             </h1>
             <div class="flex flex-wrap px-2 w-full gap-6">
                 <div v-for="food in filterFoodList" :key="food.uid"
-                    class="flex flex-col w-[250px] h-[300px]  items-center shadow-lg text-center">
+                    class="flex flex-col w-[250px] h-[300px]  items-center shadow-lg text-center max-[885px]:w-[205px]">
                     <img :src="food.imageUrl" alt="" class="mb-5 w-[100px] h-[100px] mt-4 object-cover">
                     <div class="text-2xl leading-loose font-semibold">{{ food.title }}</div>
                     <div class=" w-24 border-b border-black mb-3"></div>
