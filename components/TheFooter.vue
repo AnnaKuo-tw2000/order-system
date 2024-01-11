@@ -14,14 +14,14 @@
             </ul>
         </div>
 
-        <div class="w-[300px]">
-            <div class="flex h-[40%]  mb-2">
+        <div class="w-[300px] ">
+            <div class="flex h-[40%] mb-2 text-right">
                 <div class="flex items-center ">
-                    <h1 class=" text-5xl font-extrabold">小咪西餐廳</h1>
-                    <img src="../img/logo.png" alt="" class="w-[20%]">
+                    <h1 class=" text-5xl font-extrabold max-md:text-4xl">小咪西餐廳</h1>
+                    <img src="../img/logo.png" alt="" class="w-[20%] max-md:w-[15%]">
                 </div>
             </div>
-            <div class="flex gap-2 justify-end">
+            <div class="flex gap-2 justify-end max-md:justify-center">
                 <font-awesome-icon :icon="['fab', 'square-instagram']" />
                 <font-awesome-icon :icon="['fab', 'square-facebook']" />
                 <font-awesome-icon :icon="['fab', 'line']" />
@@ -34,8 +34,8 @@
 <style lang="scss" scoped>
 :deep() {
     .svg-inline--fa {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
     }
 }
 </style>
