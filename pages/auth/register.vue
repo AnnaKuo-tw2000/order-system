@@ -45,14 +45,14 @@ function register() {
             <img src="../../img/logo.png" alt="" class="w-[12%]">
         </div>
         <p class="text-2xl font-semibold mb-3 relative bottom-5">享受美食好味道</p>
-        <div class="w-[40%] h-auto border shadow-lg flex flex-col p-4 gap-1">
+        <div class="w-[40%] h-auto border shadow-lg flex flex-col p-4 gap-1 max-[1020px]:w-[400px]">
             <h1 class="text-xl font-semibold text-center mb-4">REGISTER</h1>
             <div class="flex gap-5">
-                <div class="w-1/2">
+                <div class="w-[40%]">
                     <p>就是這樣條款：<br>
                         "請注意，完成註冊後，您將獲得重要的提醒事項和更新通知。請確保定期檢查您的帳戶通知以保持最新資訊。感謝您的註冊！"</p>
                 </div>
-                <div class="w-1/2 flex flex-col">
+                <div class="w-[60%] flex flex-col">
                     <p>Email</p>
                     <el-input v-model="email" class="w-50" type="email" placeholder="" :prefix-icon="Message" />
                     <p>Password</p>
