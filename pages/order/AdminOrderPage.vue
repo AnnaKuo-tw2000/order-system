@@ -161,7 +161,7 @@ function deleteFoodInfo(selectedFood) {
     <div class="bg-[url('/img/bg-1.jpg')]  p-12 flex justify-center gap-10 text-amber-950 w-full">
 
         <!-- 管理員操作訂餐列表 -->
-        <section class="w-1/5 shadow-lg p-3">
+        <section class="w-1/5 shadow-lg p-3 max-[990px]:w-[170px]">
             <div class="text-3xl mb-5 text-center">管理員操作列表</div>
             <div class="w-full">
                 <div>商品名稱：<el-input v-model="foodTitle" class="w-50 m-2" size="small" />
@@ -170,7 +170,7 @@ function deleteFoodInfo(selectedFood) {
                 </div>
                 <div>商品類別：<el-input v-model="FoodCategory" class="w-50 m-2" size="small" />
                 </div>
-                <div class="flex gap-3  mt-2 flex-wrap">
+                <div class="flex gap-3 mt-2 flex-wrap">
                     <p>圖片:</p>
                     <el-upload v-model:file-list="fileList" :on-preview="handlePreview" action="#" list-type="picture-card"
                         :auto-upload="false" class="text-center" :class="{ hide: fileList.length > 0 }">
@@ -194,7 +194,7 @@ function deleteFoodInfo(selectedFood) {
             </h1>
             <div class="flex flex-wrap px-2 w-full gap-6">
                 <div v-for="food in foodList" :key="food.uid"
-                    class="flex flex-col w-[250px] h-[300px]  items-center shadow-lg text-center">
+                    class="flex flex-col w-[250px] h-[300px]  items-center shadow-lg text-center max-[885px]:w-[205px]">
                     <img :src="food.imageUrl" alt="" class="mb-5 w-[100px] h-[100px] mt-4 object-cover">
                     <div class="text-2xl leading-loose font-semibold">{{ food.title }}</div>
                     <div class=" w-24 border-b border-black mb-3"></div>
@@ -218,7 +218,7 @@ function deleteFoodInfo(selectedFood) {
                 <div class="flex gap-3 mt-2">
                     <p>圖片:</p>
                     <el-upload v-model:file-list="editFileList" :on-preview="handleEditPreview" action="#"
-                        list-type="picture-card" :auto-upload="false" class="text-center"
+                        list-type="picture-card" :auto-upload="false" class="text-center "
                         :class="{ hide: editFileList.length > 0 }">
                         <el-icon class="avatar-uploader-icon">
                             <Plus />
@@ -251,5 +251,6 @@ function deleteFoodInfo(selectedFood) {
             display: none;
         }
     }
+
 }
 </style>
