@@ -49,4 +49,7 @@
 -   [2.6](#2.6) <a name='2.6'></a> **Animate.css**：<br>
     Animate 提供豐富的 CSS 動畫效果，無需編寫複雜的代碼，簡化動畫開發，即可擁有的互動體驗。
 
+-   [2.7](#2.7) <a name='2.7'></a> **ESLint(airbnb)**：<br>
+    使用 Element Plus 中的 Button、Input、Dialog 等元件，應對不同設計需求按需引入，能夠更快速地構建出符合需求的頁面。
+
 **[⬆ 回到頂端](#table-of-contents)**
