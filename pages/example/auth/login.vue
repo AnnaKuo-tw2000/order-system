@@ -8,8 +8,7 @@ const auth = firebaseAuth.getAuth();
 
 const login = () => {
     firebaseAuth.signInWithEmailAndPassword(auth, email.value, password.value)
-        .then((data) => {
-            console.log('成功登入', data);
+        .then(() => {
             navigateTo('/example/order');
         })
         .catch((error) => {
@@ -19,7 +18,6 @@ const login = () => {
                     break;
                 default:
                     errMsg.value = JSON.stringify(error);
-                    console.log('給我出來');
                     break;
             }
         });

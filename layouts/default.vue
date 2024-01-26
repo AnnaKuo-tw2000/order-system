@@ -14,7 +14,6 @@ firebaseAuth.onAuthStateChanged(auth, (user) => {
     if (user) {
         // 有用戶信息(登入)
         authStore.userInfo = user;
-        console.log('我跑了登入');
         firebaseDb.onValue(firebaseDb.ref(db, `userInfo/${authStore.userInfo.uid}/shoppingCart`), (snapshot) => {
             const data = snapshot.val();
             cartStore.cartList = data ? Object.values(data) : null;
@@ -23,7 +22,6 @@ firebaseAuth.onAuthStateChanged(auth, (user) => {
     } else {
         // 無用戶信息(登出)
         authStore.userInfo = null;
-        console.log('我跑了登出');
         if (lastUserUid) {
             firebaseDb.off(firebaseDb.ref(db, `userInfo/${lastUserUid}/shoppingCart`));
             cartStore.cartList = null;

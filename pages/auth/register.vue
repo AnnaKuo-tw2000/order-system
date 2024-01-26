@@ -12,7 +12,6 @@ function register() {
         .createUserWithEmailAndPassword(auth, email.value, password.value)
         .then(() => navigateTo({ name: 'order-UserOrderPage' }))
         .catch((error) => {
-            console.log('error', error);
             switch (error.code) {
                 // case 'auth/invalid-email':
                 //     errMsg.value = '無效的Email帳號';

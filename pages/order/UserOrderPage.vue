@@ -14,10 +14,7 @@ function getFoodList() {
             if (snapshot.exists()) {
                 // 是商品的物件
                 foodList.value = snapshot.val();
-                console.log(foodList.value);
             }
-        }).catch((error) => {
-            console.error(error);
         });
 }
 getFoodList();
@@ -31,13 +28,11 @@ function addToShoppingCart(food) {
     let num = 1;
     if (authStore.userInfo?.uid) {
         if (cartStore.cartList) {
-            console.log('有東西');
             // 同樣的東西
             const targetFood = cartStore.cartList.find((item) => item.uid === food.uid);
             if (targetFood) { num = targetFood.num + 1; }
         }
         // 不同的東西直接加
-        console.log('沒東西');
         firebaseDb.set(firebaseDb.ref(db, `userInfo/${authStore.userInfo.uid}/shoppingCart/${food.uid}`), {
             ...food,
             num

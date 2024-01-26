@@ -8,12 +8,10 @@ const auth = firebaseAuth.getAuth();
 
 const register = () => {
     firebaseAuth.createUserWithEmailAndPassword(auth, email.value, password.value)
-        .then((data) => {
-            console.log('成功註冊!', data);
+        .then(() => {
             navigateTo('/example/order');
         })
         .catch((error) => {
-            console.log('error', error);
             switch (error.message) {
                 case 'INVALID_EMAIL':
                     errMsg.value = '無效的Email帳號';
