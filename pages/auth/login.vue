@@ -41,7 +41,7 @@ const login = () => {
             <img src="../../img/logo.png" alt="" class="w-[12%]">
         </div>
         <p class="text-2xl font-semibold mb-3 relative bottom-5">享受美食好味道</p>
-        <div class="w-[25%] h-[275px] border shadow-lg flex flex-col p-4 gap-1">
+        <div class="w-[30%] h-[275px] border shadow-lg flex flex-col p-4 gap-1 max-[900px]:w-[265px]">
             <h1 class="text-xl font-semibold text-center mb-4">LOGIN</h1>
             <p>Email</p>
             <el-input v-model="email" class="w-50" placeholder="" :prefix-icon="Message" />

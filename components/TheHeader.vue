@@ -22,6 +22,7 @@ function updateShoppingCart(num, food) {
         num
     });
 }
+
 </script>
 
 <template>
@@ -38,21 +39,25 @@ function updateShoppingCart(num, food) {
             <li class="h-full mx-4">
                 <NuxtLink :to="{ name: 'order-UserOrderPage' }" class="h-full flex items-center">線上訂購</NuxtLink>
             </li>
-            <li class="h-full mx-4">
+            <li class="h-full mx-4" v-if="authStore.userInfo?.uid === 'rFMULacV6NdOiqTfGH99sNDXwNg1'">
                 <NuxtLink :to="{ name: 'order-AdminOrderPage' }" class="h-full flex items-center">管理訂餐</NuxtLink>
             </li>
             <li class="h-full mx-4" v-if="!authStore.userInfo">
                 <NuxtLink :to="{ name: 'auth-login' }" class="h-full flex items-center">登入</NuxtLink>
             </li>
-            <li class="h-full mx-4" @click="logOut" v-else>
+            <li class="h-full mx-4 hover:cursor-pointer" @click="logOut" v-else>
                 <span class="h-full flex items-center">登出</span>
             </li>
 
             <el-popover placement="bottom" title="" :width="350" trigger="click" content="">
                 <template #reference>
+
                     <li class="h-full flex items-center mx-4 cursor-pointer"
                         @click="openShoppingDialog = !openShoppingDialog">
-                        <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+                        <el-badge :value="cartStore.cartList?.length" class="item">
+                            <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+                        </el-badge>
+
                     </li>
                 </template>
                 <template #default>
@@ -74,7 +79,7 @@ function updateShoppingCart(num, food) {
                         </div>
 
                         <div class="border-t-2 flex flex-col gap-3 py-2">
-                            <p class="text-lg">購物車中有{{ cartStore.cartList.length }}品項</p>
+                            <p class="text-lg">購物車中有{{ cartStore.cartList?.length }}個商品</p>
                             <div class="flex justify-between">
                                 <p>合計</p>
                                 <p class="text-red-600">NT${{ cartStore.cartSum }}</p>

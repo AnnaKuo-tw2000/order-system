@@ -20,10 +20,6 @@ module.exports = {
                 txSecondary: "#bebebe",
                 txTertiary: "#c0c4cc",
             },
-            // backgroundImage: {
-            //     "header-texture": "url('/img/header_desktop.png')",
-            //     "footer-texture": "url('/img/footer-texture.png')",
-            // },
         },
     },
 };

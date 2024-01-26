@@ -2,6 +2,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: false },
+    app: {
+        baseURL: process.env.NODE_ENV === "production" ? "/order-system/" : "/",
+        buildAssetsDir: "/static/",
+    },
     ssr: false,
     css: [
         "~/assets/scss/main.scss",
