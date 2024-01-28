@@ -65,8 +65,6 @@ function uploadToFoodList() {
                 foodTitle.value = '';
                 foodPrice.value = null;
                 fileList.value = [];
-            }).catch((err) => {
-                alert(err);
             });
         });
         // 如果不存在，說明這次是沒有更改圖片的編輯
@@ -101,8 +99,6 @@ function deleteFromFoodList(targetFood) {
                                 }
                             });
                         }
-                    } else {
-                        console.log('no data');
                     }
                 }).then(() => {
                     firebaseSto.deleteObject(firebaseSto.ref(storage, `food-images/${targetFood.imageName}`));
@@ -131,7 +127,6 @@ function getFoodList() {
                 foodList.value = Object.values(data);
             } else {
                 foodList.value = null;
-                console.log('no data');
             }
         });
 }

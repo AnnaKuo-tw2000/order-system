@@ -56,11 +56,9 @@ function uploadToFoodList() {
                         FoodCategory.value = '';
                         fileList.value = [];
                     });
-                })
-                .catch((err) => console.log(err));
+                });
         })
         .catch((err) => {
-            console.log(err);
             if (err.code === 'storage/unauthorized') {
                 errMsg.value = '非管理員無法使用該頁面,一般用戶請至訂購頁訂餐';
                 ElMessage.error(errMsg.value);
@@ -77,8 +75,6 @@ function getFoodList() {
         .then((snapshot) => {
             // 是商品的物件
             foodList.value = snapshot.val();
-        }).catch((error) => {
-            console.error(error);
         });
 }
 getFoodList();
@@ -151,7 +147,6 @@ function updateFoodInfo() {
 function deleteFoodInfo(selectedFood) {
     firebaseDb.remove(firebaseDb.ref(db, `foodInfo/${selectedFood.uid}`)).then(() => {
         getFoodList();
-        console.log(111);
     }).then(() => { firebaseDb.remove(firebaseDb.ref(db, `userInfo/${authStore.userInfo.uid}/shoppingCart/${selectedFood.uid}`)); });
 }
 
