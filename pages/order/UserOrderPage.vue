@@ -121,7 +121,7 @@ const filterFoodList = computed(() => {
             <template #footer>
                 <span class="dialog-footer">
                     <el-button @click="open_loginAlertDialog = false">取消</el-button>
-                    <el-button type="primary" @click="navigateTo('auth/login')">
+                    <el-button type="primary" @click="navigateTo({ name: 'auth-login' })">
                         登入
                     </el-button>
                 </span>
