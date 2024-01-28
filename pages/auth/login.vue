@@ -10,7 +10,6 @@ const auth = firebaseAuth.getAuth();
 const login = () => {
     firebaseAuth.signInWithEmailAndPassword(auth, email.value, password.value)
         .then((data) => {
-            console.log('成功登入', data);
             const { uid } = data.user;
             if (uid === 'rFMULacV6NdOiqTfGH99sNDXwNg1') {
                 navigateTo({ name: 'order-AdminOrderPage' });
@@ -19,7 +18,6 @@ const login = () => {
             }
         })
         .catch((error) => {
-            console.log('error', error);
             switch (error.code) {
                 case 'auth/missing-password':
                     errMsg.value = '請輸入正確的密碼';
